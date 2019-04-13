@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,12 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DaoFactory.cs" />
+    <Compile Include="DealDao.cs" />
+    <Compile Include="EmployerDao.cs" />
     <Compile Include="Entities\Deal.cs" />
     <Compile Include="Entities\Employer.cs" />
     <Compile Include="Entities\JobSeeker.cs" />
     <Compile Include="Entities\Position.cs" />
     <Compile Include="Entities\TypeOfWork.cs" />
+    <Compile Include="IDealDao.cs" />
+    <Compile Include="IEmployerDao.cs" />
+    <Compile Include="IJobSeekerDao.cs" />
+    <Compile Include="IPositionDao.cs" />
+    <Compile Include="ISettingsDao.cs" />
     <Compile Include="ITypeOfWorkDao.cs" />
+    <Compile Include="JobSeekerDao.cs" />
+    <Compile Include="PositionDao.cs" />
+    <Compile Include="SettingsDao.cs" />
     <Compile Include="TypeOfWorkDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

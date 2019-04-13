@@ -9,29 +9,29 @@ using System.Configuration;
 
 namespace RA.DataAccess
 {
-    public class TypeOfWorkDao : ITypeOfWorkDao
+    public class PositionDao : IPositionDao
     {
-        public void Add(TypeOfWork work)
+        public void Add(Position position)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(int WorkID)
+        public void Delete(int PositionID)
         {
             throw new NotImplementedException();
         }
 
-        public TypeOfWork Get(int WorkID)
+        public Position Get(int PositionID)
         {
             throw new NotImplementedException();
         }
 
-        public IList<TypeOfWork> GetAll()
+        public IList<Position> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(TypeOfWork work)
+        public void Update(Position position)
         {
             throw new NotImplementedException();
         }

@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,16 @@
     <Compile Include="Converters\DtoConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeOfWorkProcessDb.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RA.DataAccess\RA.DataAccess.csproj">
+      <Project>{53c170f2-5d9c-4d05-8497-1db519886d9a}</Project>
+      <Name>RA.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RA.Dto\RA.Dto.csproj">
+      <Project>{e47c1af2-5b02-40c8-bc73-06eb12b81e8a}</Project>
+      <Name>RA.Dto</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

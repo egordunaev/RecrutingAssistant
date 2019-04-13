@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RA.DataAccess.Entities
 {
-    class Position
+    public class Position
     {
+        public int PositionID;
+        public string PositionName;
+        public string IsOpen;
+        public decimal Salary;
+        public int EmployerID;
     }
 }

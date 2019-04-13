@@ -9,7 +9,7 @@ namespace RA.Dto
     /// <summary>
     /// Класс сделки
     /// </summary>
-    public class Deal
+    public class DealDto
     {
         /// <summary>
         /// Номер сделки

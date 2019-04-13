@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RA.DataAccess.Entities
 {
-    class Deal
+    public class Deal
     {
+        public int DealID;
+        public DateTime DateOfDeal;
+        public decimal Commission;
+        public int PositionID;
+        public int SeekerID;
     }
 }

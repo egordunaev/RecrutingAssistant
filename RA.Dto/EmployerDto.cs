@@ -9,7 +9,7 @@ namespace RA.Dto
     /// <summary>
     /// Работодатель
     /// </summary>
-    public class Employer
+    public class EmployerDto
     {
         /// <summary>
         /// Номер работодателя

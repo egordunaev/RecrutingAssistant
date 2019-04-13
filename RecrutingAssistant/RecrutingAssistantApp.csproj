@@ -94,5 +94,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RA.BusinessLayer\RA.BusinessLayer.csproj">
+      <Project>{010ca2d4-821e-4995-b024-f6642b1e35c4}</Project>
+      <Name>RA.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RA.Dto\RA.Dto.csproj">
+      <Project>{e47c1af2-5b02-40c8-bc73-06eb12b81e8a}</Project>
+      <Name>RA.Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

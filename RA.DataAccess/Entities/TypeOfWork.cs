@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace RA.DataAccess.Entities
 {
-    class TypeOfWork
+    public class TypeOfWork
     {
+        public int WorkID;
+        public string Name;
     }
 }
