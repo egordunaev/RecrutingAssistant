@@ -1,0 +1,15 @@
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\bin\Debug\RecrutingAssistantApp.exe.config
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\bin\Debug\RecrutingAssistantApp.exe
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\bin\Debug\RecrutingAssistantApp.pdb
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csprojAssemblyReference.cache
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\MainWindow.g.cs
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\App.g.cs
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp_MarkupCompile.cache
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp_MarkupCompile.lref
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\MainWindow.baml
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.g.resources
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.Properties.Resources.resources
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csproj.GenerateResource.cache
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csproj.CoreCompileInputs.cache
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.exe
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.pdb
