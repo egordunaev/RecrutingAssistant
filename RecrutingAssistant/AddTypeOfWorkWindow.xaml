@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="AddTypeOfWorkWindow" Height="450" Width="800">
+        Title="AddTypeOfWorkWindow" Height="90" Width="315.333">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Название работы" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" Margin="3"/>
+        <Button Name="btnSave" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="0" Content="Сохранить" Margin="3"/>
+        <Button Name="btnCancel" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Content="Сохранить" Margin="3"/>
     </Grid>
 </Window>

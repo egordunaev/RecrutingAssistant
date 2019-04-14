@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="SettingsWindow" Height="190" Width="310" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid Margin="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Сервер" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock Text="База данных" Grid.Row="1" Grid.Column="0"/>
+        <TextBlock Text="Пользователь" Grid.Row="2" Grid.Column="0"/>
+        <TextBlock Text="Пароль" Grid.Row="3" Grid.Column="0"/>
+        <TextBlock Text="Аутентификация Windows" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="tbServer" Grid.Row="0" Grid.Column="1" Margin="3"/>
+        <TextBox Name="tbDataBase" Grid.Row="1" Grid.Column="1" Margin="3"/>
+        <TextBox Name="tbUser" Grid.Row="2" Grid.Column="1" Margin="3"/>
+        <TextBox Name="tbPassword" Grid.Row="3" Grid.Column="1" Margin="3"/>
+        <CheckBox Name="cbAuth" Grid.Row="4" Grid.Column="1" Margin="3" Checked="cbAuth_Checked" Unchecked="cbAuth_Unchecked"/>
+        <Button Name="btnSave" Grid.Row="5" Grid.Column="0" Content="Сохранить" Margin="3" Click="btnSave_Click"/>
+        <Button Name="btnCancel" Grid.Row="5" Grid.Column="1" Content="Отмена" Margin="3" Click="btnCancel_Click"/>
     </Grid>
 </Window>
