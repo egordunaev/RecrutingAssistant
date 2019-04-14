@@ -9,8 +9,13 @@ using System.Configuration;
 
 namespace RA.DataAccess
 {
+
     public class DealDao : IDealDao
     {
+        /// <summary>
+        /// Добавить новую сделку
+        /// </summary>
+        /// <param name="deal">Сделка</param>
         public void Add(Deal deal)
         {
             using (var conn = GetConnection())
@@ -29,7 +34,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Удалить сделку
+        /// </summary>
+        /// <param name="DealID">Номер сделки</param>
         public void Delete(int DealID)
         {
             using (var connection = GetConnection())
@@ -43,6 +51,11 @@ namespace RA.DataAccess
             }
         }
 
+        /// <summary>
+        /// Получить определенную сделку
+        /// </summary>
+        /// <param name="DealID">Номер сделки</param>
+        /// <returns></returns>
         public Deal Get(int DealID)
         {
             using (var connection = GetConnection())
@@ -63,7 +76,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить все сделки
+        /// </summary>
+        /// <returns></returns>
         public IList<Deal> GetAll()
         {
             IList<Deal> deals = new List<Deal>();
@@ -84,7 +100,10 @@ namespace RA.DataAccess
             }
             return deals;
         }
-
+        /// <summary>
+        /// Изменить сделку
+        /// </summary>
+        /// <param name="deal">Сделка</param>
         public void Update(Deal deal)
         {
             using (var conn = GetConnection())
@@ -103,14 +122,27 @@ namespace RA.DataAccess
                 }
             }
         }
+        /// <summary>
+        /// Получить строку для подключения к базе
+        /// </summary>
+        /// <returns></returns>
         private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["RecrutingDB"].ConnectionString;
         }
+        /// <summary>
+        /// Подключиться к базе
+        /// </summary>
+        /// <returns></returns>
         private static SqlConnection GetConnection()
         {
             return new SqlConnection(GetConnectionString());
         }
+        /// <summary>
+        /// Загрузить сделку
+        /// </summary>
+        /// <param name="reader">Считыватель</param>
+        /// <returns></returns>
         private static Deal LoadDeal(SqlDataReader reader)
         {
             Deal deal = new Deal();

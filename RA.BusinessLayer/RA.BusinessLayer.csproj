@@ -42,7 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DealProcess.cs" />
+    <Compile Include="DealProcessDb.cs" />
+    <Compile Include="EmployerProcess.cs" />
+    <Compile Include="EmployerProcessDb.cs" />
+    <Compile Include="IDealProcess.cs" />
+    <Compile Include="IEmployerProcess.cs" />
+    <Compile Include="IJobSeekerProcess.cs" />
+    <Compile Include="IPositionProcess.cs" />
+    <Compile Include="ISettingsProcess.cs" />
     <Compile Include="ITypeOfWorkProcess.cs" />
+    <Compile Include="JobSeekerProcess.cs" />
+    <Compile Include="JobSeekerProcessDb.cs" />
+    <Compile Include="PositionProcess.cs" />
+    <Compile Include="PositionProcessDb.cs" />
+    <Compile Include="ProcessFactory.cs" />
+    <Compile Include="SettingsProcess.cs" />
     <Compile Include="TypeOfWorkProcess.cs" />
     <Compile Include="Converters\DtoConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

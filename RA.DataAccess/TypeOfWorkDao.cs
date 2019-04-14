@@ -11,6 +11,10 @@ namespace RA.DataAccess
 {
     public class TypeOfWorkDao : ITypeOfWorkDao
     {
+        /// <summary>
+        /// Добавить тип работы
+        /// </summary>
+        /// <param name="work">Тип работы</param>
         public void Add(TypeOfWork work)
         {
             using (var conn = GetConnection())
@@ -24,7 +28,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Удалить тип работы
+        /// </summary>
+        /// <param name="WorkID">Номер типа работы</param>
         public void Delete(int WorkID)
         {
             using (var connection = GetConnection())
@@ -37,7 +44,11 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить тип работы
+        /// </summary>
+        /// <param name="WorkID">Номер типа работы</param>
+        /// <returns></returns>
         public TypeOfWork Get(int WorkID)
         {
             using (var connection = GetConnection())
@@ -58,7 +69,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить все типы работ
+        /// </summary>
+        /// <returns></returns>
         public IList<TypeOfWork> GetAll()
         {
             IList<TypeOfWork> works = new List<TypeOfWork>();
@@ -79,7 +93,10 @@ namespace RA.DataAccess
             }
             return works;
         }
-
+        /// <summary>
+        /// Изменить тип работы
+        /// </summary>
+        /// <param name="work">Тип работы</param>
         public void Update(TypeOfWork work)
         {
             using (var conn = GetConnection())
@@ -93,14 +110,27 @@ namespace RA.DataAccess
                 }
             }
         }
+        /// <summary>
+        /// Получить строку для подключения к базе
+        /// </summary>
+        /// <returns></returns>
         private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["RecrutingDB"].ConnectionString;
         }
+        /// <summary>
+        /// Подключиться к базе
+        /// </summary>
+        /// <returns></returns>
         private static SqlConnection GetConnection()
         {
             return new SqlConnection(GetConnectionString());
         }
+        /// <summary>
+        /// Загрузить тип работы
+        /// </summary>
+        /// <param name="reader">Считыватель</param>
+        /// <returns></returns>
         private static TypeOfWork LoadTypeOfWork(SqlDataReader reader)
         {
             TypeOfWork work = new TypeOfWork();

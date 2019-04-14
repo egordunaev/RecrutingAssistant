@@ -11,6 +11,10 @@ namespace RA.DataAccess
 {
     public class EmployerDao : IEmployerDao
     {
+        /// <summary>
+        /// Добавить нового работодателя
+        /// </summary>
+        /// <param name="employer">Работодатель</param>
         public void Add(Employer employer)
         {
             using (var conn = GetConnection())
@@ -28,7 +32,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Удалить работодателя
+        /// </summary>
+        /// <param name="EmployerID">Номер работодателя</param>
         public void Delete(int EmployerID)
         {
             using (var connection = GetConnection())
@@ -41,7 +48,11 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить работодателя
+        /// </summary>
+        /// <param name="EmployerID">Номер работодателя</param>
+        /// <returns></returns>
         public Employer Get(int EmployerID)
         {
             using (var connection = GetConnection())
@@ -62,7 +73,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить всех работодателей
+        /// </summary>
+        /// <returns></returns>
         public IList<Employer> GetAll()
         {
             IList<Employer> employers = new List<Employer>();
@@ -83,7 +97,10 @@ namespace RA.DataAccess
             }
             return employers;
         }
-
+        /// <summary>
+        /// Изменить работодателя
+        /// </summary>
+        /// <param name="employer">Работодатель</param>
         public void Update(Employer employer)
         {
             using (var conn = GetConnection())
@@ -101,14 +118,27 @@ namespace RA.DataAccess
                 }
             }
         }
+        /// <summary>
+        /// Получить строку для подключения к базе
+        /// </summary>
+        /// <returns></returns>
         private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["RecrutingDB"].ConnectionString;
         }
+        /// <summary>
+        /// Подключиться к базе
+        /// </summary>
+        /// <returns></returns>
         private static SqlConnection GetConnection()
         {
             return new SqlConnection(GetConnectionString());
         }
+        /// <summary>
+        /// Загрузить работодателя
+        /// </summary>
+        /// <param name="reader">Считыватель</param>
+        /// <returns></returns>
         private static Employer LoadEmployer(SqlDataReader reader)
         {
             Employer employer = new Employer();

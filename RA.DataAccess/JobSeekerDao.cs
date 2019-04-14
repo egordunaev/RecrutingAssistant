@@ -11,6 +11,10 @@ namespace RA.DataAccess
 {
     public class JobSeekerDao : IJobSeekerDao
     {
+        /// <summary>
+        /// Добавить соискателя
+        /// </summary>
+        /// <param name="seeker">Соискатель</param>
         public void Add(JobSeeker seeker)
         {
             using (var conn = GetConnection())
@@ -34,7 +38,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Удалить соискателя
+        /// </summary>
+        /// <param name="SeekerID">Номер соискателя</param>
         public void Delete(int SeekerID)
         {
             using (var connection = GetConnection())
@@ -47,7 +54,11 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить соискателя
+        /// </summary>
+        /// <param name="SeekerID">Номер соискателя</param>
+        /// <returns></returns>
         public JobSeeker Get(int SeekerID)
         {
             using (var connection = GetConnection())
@@ -68,7 +79,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить всех соискателей
+        /// </summary>
+        /// <returns></returns>
         public IList<JobSeeker> GetAll()
         {
             IList<JobSeeker> seekers = new List<JobSeeker>();
@@ -89,7 +103,10 @@ namespace RA.DataAccess
             }
             return seekers;
         }
-
+        /// <summary>
+        /// Изменить соискателя
+        /// </summary>
+        /// <param name="seeker">Соискатель</param>
         public void Update(JobSeeker seeker)
         {
             using (var conn = GetConnection())
@@ -113,14 +130,27 @@ namespace RA.DataAccess
                 }
             }
         }
+        /// <summary>
+        /// Получить строку для подключения к базе
+        /// </summary>
+        /// <returns></returns>
         private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["RecrutingDB"].ConnectionString;
         }
+        /// <summary>
+        /// Подключиться к базе
+        /// </summary>
+        /// <returns></returns>
         private static SqlConnection GetConnection()
         {
             return new SqlConnection(GetConnectionString());
         }
+        /// <summary>
+        /// Загрузить соискателя
+        /// </summary>
+        /// <param name="reader">Считыватель</param>
+        /// <returns></returns>
         private static JobSeeker LoadSeeker(SqlDataReader reader)
         {
             JobSeeker seeker = new JobSeeker();

@@ -11,6 +11,10 @@ namespace RA.DataAccess
 {
     public class PositionDao : IPositionDao
     {
+        /// <summary>
+        /// Добавить вакансию
+        /// </summary>
+        /// <param name="position">Вакансия</param>
         public void Add(Position position)
         {
             using (var conn = GetConnection())
@@ -30,7 +34,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Удалить вакансию
+        /// </summary>
+        /// <param name="PositionID">Номер вакансии</param>
         public void Delete(int PositionID)
         {
             using (var connection = GetConnection())
@@ -43,7 +50,11 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить вакансию
+        /// </summary>
+        /// <param name="PositionID">Номер вакансии</param>
+        /// <returns></returns>
         public Position Get(int PositionID)
         {
             using (var connection = GetConnection())
@@ -64,7 +75,10 @@ namespace RA.DataAccess
                 }
             }
         }
-
+        /// <summary>
+        /// Получить все вакансии
+        /// </summary>
+        /// <returns></returns>
         public IList<Position> GetAll()
         {
             IList<Position> positions = new List<Position>();
@@ -85,7 +99,10 @@ namespace RA.DataAccess
             }
             return positions;
         }
-
+        /// <summary>
+        /// Изменить вакансию
+        /// </summary>
+        /// <param name="position">Вакансия</param>
         public void Update(Position position)
         {
             using (var conn = GetConnection())
@@ -105,14 +122,27 @@ namespace RA.DataAccess
                 }
             }
         }
+        /// <summary>
+        /// Получить строку для подключения к базе
+        /// </summary>
+        /// <returns></returns>
         private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["RecrutingDB"].ConnectionString;
         }
+        /// <summary>
+        /// Подключиться к базе
+        /// </summary>
+        /// <returns></returns>
         private static SqlConnection GetConnection()
         {
             return new SqlConnection(GetConnectionString());
         }
+        /// <summary>
+        /// Загрузить вакансию
+        /// </summary>
+        /// <param name="reader">Считыватель</param>
+        /// <returns></returns>
         private static Position LoadPosition(SqlDataReader reader)
         {
             Position position = new Position();
