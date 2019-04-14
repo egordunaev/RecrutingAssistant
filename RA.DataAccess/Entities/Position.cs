@@ -11,7 +11,7 @@ namespace RA.DataAccess.Entities
         public int PositionID;
         public string PositionName;
         public string IsOpen;
-        public decimal Salary;
+        public decimal? Salary;
         public int EmployerID;
     }
 }

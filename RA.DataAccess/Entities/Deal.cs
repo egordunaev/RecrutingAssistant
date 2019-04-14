@@ -9,8 +9,8 @@ namespace RA.DataAccess.Entities
     public class Deal
     {
         public int DealID;
-        public DateTime DateOfDeal;
-        public decimal Commission;
+        public DateTime? DateOfDeal;
+        public decimal? Commission;
         public int PositionID;
         public int SeekerID;
     }

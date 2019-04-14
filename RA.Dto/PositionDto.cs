@@ -30,7 +30,7 @@ namespace RA.Dto
         /// <summary>
         /// Зарплата вакансии
         /// </summary>
-        public decimal Salary { get; set; }
+        public decimal? Salary { get; set; }
 
     }
 }

@@ -13,12 +13,34 @@ namespace RA.DataAccess
     {
         public void Add(Deal deal)
         {
-            
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "INSERT INTO Deal(DateOfDeal, Commission, PositionID, SeekerID)VALUES(@DateOfDeal, @Commission, @PositionID, @SeekerID)";
+                    cmd.Parameters.AddWithValue("@SeekerID", deal.SeekerID);
+                    cmd.Parameters.AddWithValue("@PositionID", deal.PositionID);
+                    object dateofdeal = deal.DateOfDeal.HasValue ? (object)deal.DateOfDeal.Value : DBNull.Value;
+                    object commission = deal.Commission.HasValue ? (object)deal.Commission.Value : DBNull.Value;
+                    cmd.Parameters.AddWithValue("@Commission", commission);
+                    cmd.Parameters.AddWithValue("@DateOfDeal", dateofdeal);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Delete(int DealID)
         {
-            throw new NotImplementedException();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Deal WHERE DealID=@DealID";
+                    cmd.Parameters.AddWithValue("@DealID", DealID);
+                }
+            }
         }
 
         public Deal Get(int DealID)
@@ -65,7 +87,21 @@ namespace RA.DataAccess
 
         public void Update(Deal deal)
         {
-            throw new NotImplementedException();
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Deal SET DateOfDeal=@DateOfDeal, Commission=@Commission, PositionID=@PositionID, SeekerID=@SeekerID WHERE DealID=@DealID";
+                    cmd.Parameters.AddWithValue("@SeekerID", deal.SeekerID);
+                    cmd.Parameters.AddWithValue("@PositionID", deal.PositionID);
+                    object dateofdeal = deal.DateOfDeal.HasValue ? (object)deal.DateOfDeal.Value : DBNull.Value;
+                    object commission = deal.Commission.HasValue ? (object)deal.Commission.Value : DBNull.Value;
+                    cmd.Parameters.AddWithValue("@Commission", commission);
+                    cmd.Parameters.AddWithValue("@DateOfDeal", dateofdeal);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
         private static string GetConnectionString()
         {

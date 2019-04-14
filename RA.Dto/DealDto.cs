@@ -26,10 +26,10 @@ namespace RA.Dto
         /// <summary>
         /// Дата сделки
         /// </summary>
-        public DateTime DateOfDeal { get; set; }
+        public DateTime? DateOfDeal { get; set; }
         /// <summary>
         /// Коммиссионные
         /// </summary>
-        public decimal Commission { get; set; }
+        public decimal? Commission { get; set; }
     }
 }

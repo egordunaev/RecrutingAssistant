@@ -13,7 +13,7 @@ namespace RA.DataAccess.Entities
         public string SecondName;
         public string ThirdName;
         public string Qualification;
-        public decimal AssumedSalary;
+        public decimal? AssumedSalary;
         public string Misc;
         public int WorkID;
     }

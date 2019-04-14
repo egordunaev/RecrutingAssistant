@@ -38,7 +38,7 @@ namespace RA.Dto
         /// <summary>
         /// Предполагаемая зарплата соискателя
         /// </summary>
-        public decimal AssumedSalary { get; set; }
+        public decimal? AssumedSalary { get; set; }
         /// <summary>
         /// Прочая информация о соискателе
         /// </summary>
