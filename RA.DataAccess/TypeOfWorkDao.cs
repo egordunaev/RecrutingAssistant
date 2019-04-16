@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace RA.DataAccess
 {
-    public class TypeOfWorkDao : ITypeOfWorkDao
+    public class TypeOfWorkDao : BaseDao, ITypeOfWorkDao
     {
         /// <summary>
         /// Добавить тип работы

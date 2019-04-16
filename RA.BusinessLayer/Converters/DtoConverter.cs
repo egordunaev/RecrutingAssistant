@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RA.Dto;
 using RA.DataAccess.Entities;
+using RA.DataAccess;
 
 namespace RA.BusinessLayer.Converters
 {
@@ -21,8 +22,8 @@ namespace RA.BusinessLayer.Converters
             dealDto.DealID = deal.DealID;
             dealDto.DateOfDeal = deal.DateOfDeal;
             dealDto.Commission = deal.Commission;
-            dealDto.PositionID = deal.PositionID;
-            dealDto.SeekerID = deal.SeekerID;
+            dealDto.Position = Convert(DaoFactory.GetPositionDao().Get(deal.PositionID));
+            dealDto.Seeker = Convert(DaoFactory.GetJobSeekerDao().Get(deal.SeekerID));
             return dealDto;
         }
         public static Deal Convert(DealDto dealDto)
@@ -33,8 +34,8 @@ namespace RA.BusinessLayer.Converters
             deal.DealID = dealDto.DealID;
             deal.DateOfDeal = dealDto.DateOfDeal;
             deal.Commission = dealDto.Commission;
-            deal.PositionID = dealDto.PositionID;
-            deal.SeekerID = dealDto.SeekerID;
+            deal.PositionID = dealDto.Position.PositionID;
+            deal.SeekerID = dealDto.Seeker.SeekerID;
             return deal;
         }
         public static IList<DealDto> Convert(IList<Deal> deals)
@@ -60,7 +61,7 @@ namespace RA.BusinessLayer.Converters
             employerDto.Name = employer.Name;
             employerDto.Address = employer.Address;
             employerDto.PhoneNumber = employer.PhoneNumber;
-            employerDto.WorkID = employer.WorkID;
+            employerDto.Work = Convert(DaoFactory.GetTypeOfWorkDao().Get(employer.WorkID));
             return employerDto;
         }
         public static Employer Convert(EmployerDto employerDto)
@@ -72,7 +73,7 @@ namespace RA.BusinessLayer.Converters
             employer.Name = employerDto.Name;
             employer.Address = employerDto.Address;
             employer.PhoneNumber = employerDto.PhoneNumber;
-            employer.WorkID = employerDto.WorkID;
+            employer.WorkID = employerDto.Work.WorkID;
             return employer;
         }
         public static IList<EmployerDto> Convert(IList<Employer> employers)
@@ -101,7 +102,7 @@ namespace RA.BusinessLayer.Converters
             seekerDto.Qualification = seeker.Qualification;
             seekerDto.AssumedSalary = seeker.AssumedSalary;
             seekerDto.Misc = seeker.Misc;
-            seekerDto.WorkID = seeker.WorkID;
+            seekerDto.Work = Convert(DaoFactory.GetTypeOfWorkDao().Get(seeker.WorkID));
             return seekerDto;
         }
         public static JobSeeker Convert(JobSeekerDto seekerDto)
@@ -116,7 +117,7 @@ namespace RA.BusinessLayer.Converters
             seeker.Qualification = seekerDto.Qualification;
             seeker.AssumedSalary = seekerDto.AssumedSalary;
             seeker.Misc = seekerDto.Misc;
-            seeker.WorkID = seekerDto.WorkID;
+            seeker.WorkID = seekerDto.Work.WorkID;
             return seeker;
 
         }
@@ -143,7 +144,7 @@ namespace RA.BusinessLayer.Converters
             positionDto.PositionName = position.PositionName;
             positionDto.IsOpen = position.IsOpen;
             positionDto.Salary = position.Salary;
-            positionDto.EmployerID = position.EmployerID;
+            positionDto.employer = Convert(DaoFactory.GetEmployerDao().Get(position.EmployerID));
             return positionDto;
         }
         public static Position Convert(PositionDto positionDto)
@@ -155,7 +156,7 @@ namespace RA.BusinessLayer.Converters
             position.PositionName = positionDto.PositionName;
             position.IsOpen = positionDto.IsOpen;
             position.Salary = positionDto.Salary;
-            position.EmployerID = positionDto.EmployerID;
+            position.EmployerID = positionDto.employer.EmployerID;
             return position;
         }
         public static IList<PositionDto> Convert(IList<Position> positions)

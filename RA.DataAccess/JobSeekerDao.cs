@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace RA.DataAccess
 {
-    public class JobSeekerDao : IJobSeekerDao
+    public class JobSeekerDao : BaseDao, IJobSeekerDao
     {
         /// <summary>
         /// Добавить соискателя
@@ -155,7 +155,8 @@ namespace RA.DataAccess
         {
             JobSeeker seeker = new JobSeeker();
             seeker.SeekerID = reader.GetInt16(reader.GetOrdinal("SeekerID"));
-            seeker.WorkID = Convert.ToInt32(reader["WorkID"]);
+            int seekwork = reader.GetOrdinal("WorkID");
+            seeker.WorkID = reader[seekwork] == DBNull.Value ? -1 : reader.GetInt32(seekwork);
             seeker.FirstName = reader.GetString(reader.GetOrdinal("FirstName"));
             seeker.SecondName = reader.GetString(reader.GetOrdinal("SecondName"));
             object thirdname = reader["ThirdName"];

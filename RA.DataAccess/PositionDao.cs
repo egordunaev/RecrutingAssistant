@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace RA.DataAccess
 {
-    public class PositionDao : IPositionDao
+    public class PositionDao : BaseDao, IPositionDao
     {
         /// <summary>
         /// Добавить вакансию
@@ -147,7 +147,8 @@ namespace RA.DataAccess
         {
             Position position = new Position();
             position.PositionID = reader.GetInt16(reader.GetOrdinal("PositionID"));
-            position.EmployerID = Convert.ToInt32(reader["EmployerID"]);
+            int posemp = reader.GetOrdinal("EmployerID");
+            position.EmployerID = reader[posemp] == DBNull.Value ? -1 : reader.GetInt32(posemp);
             object positionname = reader["PositionName"];
             object isopen = reader["IsOpen"];
             object salary = reader["Salary"];

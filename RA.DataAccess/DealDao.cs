@@ -10,7 +10,7 @@ using System.Configuration;
 namespace RA.DataAccess
 {
 
-    public class DealDao : IDealDao
+    public class DealDao : BaseDao, IDealDao
     {
         /// <summary>
         /// Добавить новую сделку
@@ -152,8 +152,10 @@ namespace RA.DataAccess
             if (commission != DBNull.Value)
                 deal.Commission = Convert.ToDecimal(commission);
             //deal.Commission = Convert.ToDecimal(reader["Commission"]);
-            deal.PositionID = Convert.ToInt32(reader["PositionID"]);
-            deal.SeekerID = Convert.ToInt32(reader["SeekerID"]);
+            int dealpos = reader.GetOrdinal("PositionID");
+            int dealseek = reader.GetOrdinal("SeekerID");
+            deal.PositionID = reader[dealpos] == DBNull.Value ? -1 : reader.GetInt32(dealpos);
+            deal.SeekerID = reader[dealseek] == DBNull.Value ? -1 : reader.GetInt32(dealseek);
             return deal;
         }
     }

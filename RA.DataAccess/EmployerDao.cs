@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace RA.DataAccess
 {
-    public class EmployerDao : IEmployerDao
+    public class EmployerDao : BaseDao, IEmployerDao
     {
         /// <summary>
         /// Добавить нового работодателя
@@ -143,7 +143,8 @@ namespace RA.DataAccess
         {
             Employer employer = new Employer();
             employer.EmployerID = reader.GetInt32(reader.GetOrdinal("EmployerID"));
-            employer.WorkID = reader.GetInt32(reader.GetOrdinal("WorkID"));
+            int empwork = reader.GetOrdinal("WorkID");
+            employer.WorkID = reader[empwork] == DBNull.Value ? -1 : reader.GetInt32(empwork);
             employer.Name = reader.GetString(reader.GetOrdinal("Name"));
             employer.Address = reader.GetString(reader.GetOrdinal("Address"));
             object phonenumber = reader["PhoneNumber"];

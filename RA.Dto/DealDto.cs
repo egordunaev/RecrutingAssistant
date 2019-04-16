@@ -18,11 +18,11 @@ namespace RA.Dto
         /// <summary>
         /// Номер вакансии
         /// </summary>
-        public int PositionID { get; set; }
+        public PositionDto Position { get; set; }
         /// <summary>
         /// Номер соискателя
         /// </summary>
-        public int SeekerID { get; set; }
+        public JobSeekerDto Seeker { get; set; }
         /// <summary>
         /// Дата сделки
         /// </summary>

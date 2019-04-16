@@ -18,7 +18,7 @@ namespace RA.Dto
         /// <summary>
         /// Номер работодателя
         /// </summary>
-        public int EmployerID { get; set; }
+        public EmployerDto employer { get; set; }
         /// <summary>
         /// Название вакансии
         /// </summary>

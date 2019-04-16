@@ -18,7 +18,7 @@ namespace RA.Dto
         /// <summary>
         /// Номер типа работы
         /// </summary>
-        public int WorkID { get; set; }
+        public TypeOfWorkDto Work { get; set; }
         /// <summary>
         /// Имя соискателя
         /// </summary>
