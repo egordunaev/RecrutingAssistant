@@ -5,37 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="RecrutingApp" Height="461.904" Width="847.619" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="RecrutingApp" Height="461.904" Width="850.619" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="58"/>
+            <RowDefinition Height="28"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="229*"/>
-            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="88"/>
+            <ColumnDefinition Width="332*"/>
+            <ColumnDefinition Width="45*"/>
         </Grid.ColumnDefinitions>
         <DataGrid Name="dgTypeOfWork" VerticalAlignment="Top" Grid.RowSpan="7" Grid.Column="1" Height="350" Grid.Row="1" Visibility="Hidden"/>
         <DataGrid Name="dgJobSeeker" VerticalAlignment="Top" Grid.RowSpan="7" Grid.Column="1" Height="350" Grid.Row="1" Visibility="Hidden"/>
         <DataGrid Name="dgEmployer" VerticalAlignment="Top" Grid.RowSpan="7" Grid.Column="1" Height="350" Grid.Row="1" Visibility="Hidden"/>
         <DataGrid Name="dgPosition" VerticalAlignment="Top" Grid.RowSpan="7" Grid.Column="1" Height="350" Grid.Row="1" Visibility="Hidden"/>
         <DataGrid Name="dgDeal" VerticalAlignment="Top" Grid.RowSpan="7" Grid.Column="1" Height="350" Grid.Row="1" Visibility="Hidden"/>
-        <Button Name="btnAdd" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="1" Margin="7,3,8,3" Click="btnAdd_Click"/>
-        <Button Name="btnRefresh" Content="Обновить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="2" Margin="7,3,8,3" Click="btnRefresh_Click"/>
-        <Button Name="btnDelete" Content="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="3" Margin="7,3,8,3" Click="btnDelete_Click"/>
-        <Button Name="btnEdit" Content="Изменить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="4" Margin="7,3,8,3" Click="btnEdit_Click"/>
-        <Button Name="btnSearch" Content="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="5" Margin="7,3,8,3"/>
-        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="1" Margin="0,3">
-            <Button HorizontalAlignment="Center" x:Name="btnTypeOfWork" VerticalAlignment="Center" Height="45" Width="70">
+        <Button Name="btnAdd" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="1"  Click="btnAdd_Click" Margin="16,5,14,5"/>
+        <Button Name="btnRefresh" Content="Обновить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="2"  Click="btnRefresh_Click" Margin="16,5,14,5"/>
+        <Button Name="btnDelete" Content="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="3"  Click="btnDelete_Click" Margin="16,5,14,5"/>
+        <Button Name="btnEdit" Content="Изменить" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="4"  Click="btnEdit_Click" Margin="16,5,14,5"/>
+        <Button Name="btnSearch" Content="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="60" Height="45" Grid.Column="2" Grid.Row="5" Margin="16,5,14,5"/>
+        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="1" Margin="0,5">
+            <Button HorizontalAlignment="Center" x:Name="btnTypeOfWork" VerticalAlignment="Center" Height="45" Width="70" Click="btnTypeOfWork_Click">
                 <Button.ToolTip>
                     <TextBlock><Run Text="Таблица видов работ"/></TextBlock>
                 </Button.ToolTip>
@@ -44,8 +44,8 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="2" Margin="0,3">
-            <Button HorizontalAlignment="Center" x:Name="btnJobSeeker" VerticalAlignment="Center" Height="45" Width="70">
+        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="2" Margin="0,5">
+            <Button HorizontalAlignment="Center" x:Name="btnJobSeeker" VerticalAlignment="Center" Height="45" Width="70" Click="btnJobSeeker_Click">
                 <Button.ToolTip>
                     <TextBlock><Run Text="Таблица соискателей"/></TextBlock>
                 </Button.ToolTip>
@@ -54,8 +54,8 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="3" Margin="0,3">
-            <Button HorizontalAlignment="Center" x:Name="btnEmployer" VerticalAlignment="Center" Height="45" Width="70">
+        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="3" Margin="0,5">
+            <Button HorizontalAlignment="Center" x:Name="btnEmployer" VerticalAlignment="Center" Height="45" Width="70" Click="btnEmployer_Click">
                 <Button.ToolTip>
                     <TextBlock><Run Text="Таблица работодателей"/></TextBlock>
                 </Button.ToolTip>
@@ -64,8 +64,8 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="4" Margin="0,3">
-            <Button HorizontalAlignment="Center" x:Name="btnPosition" VerticalAlignment="Center" Height="45" Width="70">
+        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="4" Margin="0,5">
+            <Button HorizontalAlignment="Center" x:Name="btnPosition" VerticalAlignment="Center" Height="45" Width="70" Click="btnPosition_Click">
                 <Button.ToolTip>
                     <TextBlock><Run Text="Таблица вакансий"/></TextBlock>
                 </Button.ToolTip>
@@ -74,8 +74,8 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="5" Margin="0,3">
-            <Button HorizontalAlignment="Center" x:Name="btnDeal" VerticalAlignment="Center" Height="45" Width="70">
+        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="5" Margin="0,5">
+            <Button HorizontalAlignment="Center" x:Name="btnDeal" VerticalAlignment="Center" Height="45" Width="70" Click="btnDeal_Click">
                 <Button.ToolTip>
                     <TextBlock><Run Text="Таблица сделок"/></TextBlock>
                 </Button.ToolTip>
@@ -86,14 +86,14 @@
         </StackPanel>
         <Menu Height="25" HorizontalAlignment="Stretch" Name="mainMenu" VerticalAlignment="Top" Grid.ColumnSpan="3">
             <MenuItem Name="DataBase" Header="База данных">
-                <MenuItem Name="dataBaseS" Header="Настроить соединение с базой данных" ></MenuItem>
+                <MenuItem Name="dataBaseS" Header="Настроить соединение с базой данных" Checked="btnDatabase_Click" ></MenuItem>
             </MenuItem>
             <MenuItem Name="Reports" Header="Отчеты">
                 <MenuItem Name="ExcelExporterButton" Header="Экспорт таблицы Excel"/>
             </MenuItem>
             <MenuItem Name="About" Header="О программе"></MenuItem>
         </Menu>
-        <StatusBar Name="statusBar" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Margin="1,0" VerticalAlignment="Bottom" Height="30" Grid.Row="7" Grid.RowSpan="2">
+        <StatusBar Name="statusBar" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Margin="1,0" VerticalAlignment="Bottom" Height="30" Grid.Row="7">
             <Label Name="statusLabel" Content="Работа с таблицей:" Visibility="Visible"></Label>
         </StatusBar>
     </Grid>

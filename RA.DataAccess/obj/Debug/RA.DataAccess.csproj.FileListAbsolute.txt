@@ -3,3 +3,4 @@ D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.DataAccess\bin\Debug\
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.csproj.CoreCompileInputs.cache
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.dll
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.pdb
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.csprojAssemblyReference.cache
