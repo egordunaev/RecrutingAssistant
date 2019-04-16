@@ -62,7 +62,7 @@ namespace RA.DataAccess
                 connection.Open();
                 using (var cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT PositionID, PositionName, IsOpen, Salary, EmployerID FROM Postion WHERE PositionID=@PositionID";
+                    cmd.CommandText = "SELECT PositionID, PositionName, IsOpen, Salary, EmployerID FROM Position WHERE PositionID=@PositionID";
                     cmd.Parameters.AddWithValue("@PositionID", PositionID);
                     using (var datareader = cmd.ExecuteReader())
                     {
@@ -146,7 +146,7 @@ namespace RA.DataAccess
         private static Position LoadPosition(SqlDataReader reader)
         {
             Position position = new Position();
-            position.PositionID = reader.GetInt16(reader.GetOrdinal("PositionID"));
+            position.PositionID = reader.GetInt32(reader.GetOrdinal("PositionID"));
             int posemp = reader.GetOrdinal("EmployerID");
             position.EmployerID = reader[posemp] == DBNull.Value ? -1 : reader.GetInt32(posemp);
             object positionname = reader["PositionName"];

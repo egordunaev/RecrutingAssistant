@@ -67,7 +67,7 @@ namespace RA.DataAccess
                 using (var cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker WHERE SeekerID=@SeekerID";
-                    cmd.Parameters.AddWithValue("@EmployerID", SeekerID);
+                    cmd.Parameters.AddWithValue("@SeekerID", SeekerID);
                     using (var datareader = cmd.ExecuteReader())
                     {
                         if (datareader.Read())
@@ -154,7 +154,7 @@ namespace RA.DataAccess
         private static JobSeeker LoadSeeker(SqlDataReader reader)
         {
             JobSeeker seeker = new JobSeeker();
-            seeker.SeekerID = reader.GetInt16(reader.GetOrdinal("SeekerID"));
+            seeker.SeekerID = reader.GetInt32(reader.GetOrdinal("SeekerID"));
             int seekwork = reader.GetOrdinal("WorkID");
             seeker.WorkID = reader[seekwork] == DBNull.Value ? -1 : reader.GetInt32(seekwork);
             seeker.FirstName = reader.GetString(reader.GetOrdinal("FirstName"));

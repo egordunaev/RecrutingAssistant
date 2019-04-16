@@ -57,23 +57,29 @@ namespace RecrutingAssistant
         }
         private void btnAddWork_Click(object sender, RoutedEventArgs e)
         {
+            AddTypeOfWorkWindow window = new AddTypeOfWorkWindow();
+            window.ShowDialog();
 
         }
         private void btnAddSeeker_Click(object sender, RoutedEventArgs e)
         {
-
+            AddJobSeekerWindow window = new AddJobSeekerWindow();
+            window.ShowDialog();
         }
         private void btnAddEmployer_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEmployerWindow window = new AddEmployerWindow();
+            window.ShowDialog();
         }
         private void btnAddPosition_Click(object sender, RoutedEventArgs e)
         {
-
+            AddPositionWindow window = new AddPositionWindow();
+            window.ShowDialog();
         }
         private void btnAddDeal_Click(object sender, RoutedEventArgs e)
         {
-
+            AddDealWindow window = new AddDealWindow();
+            window.ShowDialog();
         }
         // 
         // REFRESH FUNCTIONS
@@ -104,23 +110,23 @@ namespace RecrutingAssistant
         }
         private void btnRefreshWork_Click(object sender, RoutedEventArgs e)
         {
-
+            dgTypeOfWork.ItemsSource = ProcessFactory.GetWorkProcess().GetList();
         }
         private void btnRefreshSeeker_Click(object sender, RoutedEventArgs e)
         {
-
+            dgJobSeeker.ItemsSource = ProcessFactory.GetSeekerProcess().GetList();
         }
         private void btnRefreshEmployer_Click(object sender, RoutedEventArgs e)
         {
-
+            dgEmployer.ItemsSource = ProcessFactory.GetEmployerProcess().GetList();
         }
         private void btnRefreshPosition_Click(object sender, RoutedEventArgs e)
         {
-
+            dgPosition.ItemsSource = ProcessFactory.GetPositionProcess().GetList();
         }
         private void btnRefreshDeal_Click(object sender, RoutedEventArgs e)
         {
-
+            dgDeal.ItemsSource = ProcessFactory.GetDealProcess().GetList();
         }
         // 
         // DELETE FUNCTIONS

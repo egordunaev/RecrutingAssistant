@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="AddDealWindow" Height="450" Width="800">
+        Title="Сделки" Height="200" Width="285" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="140"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="Соискатель" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="100" Grid.Column="0" Grid.Row="0"/>
+        <ComboBox Name="cbSeeker" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="132" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding}" DisplayMemberPath="Seeker"/>
+        <Label Content="Вакансия" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Width="100" VerticalAlignment="Center"/>
+        <ComboBox Name="cbPosition" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="132" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding}" DisplayMemberPath="Position"/>
+        <Label Content="Дата сделки" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" Width="100" VerticalAlignment="Center"/>
+        <DatePicker Name="dpDateOfDeal" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" Width="132" VerticalAlignment="Stretch" Margin="0,3,0,3"/>
+        <Label Content="Комиссионные" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3" Width="100" VerticalAlignment="Center"/>
+        <TextBox Name="tbCommissions" Grid.Row="3" Grid.Column="1" Width="132" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Label Content="" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center"/>
+        <Button Name="btnSave" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="5" Click="btnSave_Click"/>
+        <Button Name="btnCancel" Content="Отмена" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="5" Click="btnCancel_Click"/>
     </Grid>
 </Window>

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using RA.Dto;
+using RA.BusinessLayer;
 
 namespace RecrutingAssistantApp
 {
@@ -22,6 +24,39 @@ namespace RecrutingAssistantApp
         public AddTypeOfWorkWindow()
         {
             InitializeComponent();
+        }
+        private int _workid;
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if(string.IsNullOrEmpty(tbName.Text))
+            {
+                MessageBox.Show("Тип работы не может быть пустым", "Проверка");
+                return;
+            }
+            TypeOfWorkDto typeOfWork = new TypeOfWorkDto();
+            typeOfWork.Name = tbName.Text;
+            ITypeOfWorkProcess typeOfWorkProcess = ProcessFactory.GetWorkProcess();
+            if(_workid==0)
+            {
+                typeOfWorkProcess.Add(typeOfWork);
+            }
+            else
+            {
+                typeOfWork.WorkID = _workid;
+                typeOfWorkProcess.Update(typeOfWork);
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void Load(TypeOfWorkDto typeOfWork)
+        {
+            if (typeOfWork == null)
+                return;
+            _workid = typeOfWork.WorkID;
+            tbName.Text = typeOfWork.Name;
         }
     }
 }

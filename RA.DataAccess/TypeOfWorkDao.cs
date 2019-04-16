@@ -134,7 +134,7 @@ namespace RA.DataAccess
         private static TypeOfWork LoadTypeOfWork(SqlDataReader reader)
         {
             TypeOfWork work = new TypeOfWork();
-            work.WorkID = reader.GetInt16(reader.GetOrdinal("WorkID"));
+            work.WorkID = reader.GetInt32(reader.GetOrdinal("WorkID"));
             work.Name = reader.GetString(reader.GetOrdinal("Name"));
             return work;
         }
