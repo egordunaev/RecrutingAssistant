@@ -39,5 +39,10 @@ namespace RA.DataAccess
         /// </summary>
         /// <param name="WorkID">Номер типа работы</param>
         void Delete(int WorkID);
+        /// <summary>
+        /// Загрузить тип работы
+        /// </summary>
+        /// <returns></returns>
+        IList<TypeOfWork> Load();
     }
 }

@@ -11,6 +11,28 @@ namespace RA.DataAccess
 {
     public class TypeOfWorkDao : BaseDao, ITypeOfWorkDao
     {
+        private static IDictionary<int, TypeOfWork> TypesOfWork;
+        private IList<TypeOfWork> LoadInternal()
+        {
+            IList<TypeOfWork> types = new List<TypeOfWork>();
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT WorkID, Name FROM TypeOfWork";
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            types.Add(LoadTypeOfWork(reader));
+                        }
+                    }
+                }
+            }
+            return types;
+        }
         /// <summary>
         /// Добавить тип работы
         /// </summary>
@@ -51,23 +73,9 @@ namespace RA.DataAccess
         /// <returns></returns>
         public TypeOfWork Get(int WorkID)
         {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var cmd = connection.CreateCommand())
-                {
-                    cmd.CommandText = "SELECT WorkID, Name FROM TypeOfWork WHERE WorkID=@WorkID";
-                    cmd.Parameters.AddWithValue("@WorkID", WorkID);
-                    using (var datareader = cmd.ExecuteReader())
-                    {
-                        if (datareader.Read())
-                        {
-                            return !datareader.Read() ? null : LoadTypeOfWork(datareader);
-                        }
-                        return null;
-                    }
-                }
-            }
+            if (TypesOfWork == null)
+                Load();
+            return TypesOfWork.ContainsKey(WorkID) ? TypesOfWork[WorkID] : null;
         }
         /// <summary>
         /// Получить все типы работ
@@ -137,6 +145,23 @@ namespace RA.DataAccess
             work.WorkID = reader.GetInt32(reader.GetOrdinal("WorkID"));
             work.Name = reader.GetString(reader.GetOrdinal("Name"));
             return work;
+        }
+
+        public IList<TypeOfWork> Load()
+        {
+            TypesOfWork = new Dictionary<int, TypeOfWork>();
+            var types = LoadInternal();
+            foreach(var type in types)
+            {
+                TypesOfWork.Add(type.WorkID, type);
+            }
+            return TypesOfWork.Values.ToList();
+        }
+        public void Reset()
+        {
+            if (TypesOfWork == null)
+                return;
+            TypesOfWork.Clear();
         }
     }
 }
