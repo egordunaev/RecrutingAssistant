@@ -91,7 +91,7 @@ namespace RA.DataAccess
                 connection.Open();
                 using (var cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT EmployerID, Name, Address, PhoneNumber, WorkID FROM Employer";
+                    cmd.CommandText = "SELECT SeekerID, FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker";
                     using (var datareader = cmd.ExecuteReader())
                     {
                         while (datareader.Read())
