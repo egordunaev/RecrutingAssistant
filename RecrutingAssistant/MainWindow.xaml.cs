@@ -157,7 +157,16 @@ namespace RecrutingAssistant
         }
         private void btnDeleteWork_Click(object sender, RoutedEventArgs e)
         {
-
+            TypeOfWorkDto item = dgTypeOfWork.SelectedItem as TypeOfWorkDto;
+            if(item ==null)
+            {
+                MessageBox.Show("Выберите запись для удаления", "Удаление типов работ");
+            }
+            MessageBoxResult result = MessageBox.Show("Удалить тип: " + item.Name + "?", "Удаление типов работ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result != MessageBoxResult.Yes)
+                return;
+            ProcessFactory.GetWorkProcess().Delete(item.WorkID);
+            btnRefresh_Click(sender, e);
         }
         private void btnDeleteSeeker_Click(object sender, RoutedEventArgs e)
         {
@@ -204,7 +213,15 @@ namespace RecrutingAssistant
         }
         private void btnEditWork_Click(object sender, RoutedEventArgs e)
         {
-
+            TypeOfWorkDto item = dgTypeOfWork.SelectedItem as TypeOfWorkDto;
+            if(item==null)
+            {
+                MessageBox.Show("Выберите запись для редактирования", "Редактирование типов работ");
+            }
+            AddTypeOfWorkWindow window = new AddTypeOfWorkWindow();
+            window.Load(item);
+            window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         private void btnEditSeeker_Click(object sender, RoutedEventArgs e)
         {

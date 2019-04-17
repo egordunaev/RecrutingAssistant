@@ -29,7 +29,7 @@ namespace RA.DataAccess
                     object ThirdName = (String.IsNullOrEmpty(seeker.ThirdName) == false) ? (object)seeker.ThirdName.ToString() : DBNull.Value;
                     cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
                     object Misc = (String.IsNullOrEmpty(seeker.Misc) == false) ? (object)seeker.Misc.ToString() : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@ThirdName", Misc);
+                    cmd.Parameters.AddWithValue("@Misc", Misc);
                     object AssumedSalary = seeker.AssumedSalary.HasValue ? (object)seeker.AssumedSalary.Value : DBNull.Value;
                     cmd.Parameters.AddWithValue("@AssumedSalary", AssumedSalary);
                     object qualification = (String.IsNullOrEmpty(seeker.Qualification) == false) ? (object)seeker.Qualification.ToString() : DBNull.Value;

@@ -38,5 +38,6 @@ namespace RA.BusinessLayer
         /// </summary>
         /// <param name="SeekerID">Номер соискателя</param>
         void Delete(int SeekerID);
+        //IList<JobSeekerDto> Load();
     }
 }

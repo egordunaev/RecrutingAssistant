@@ -45,13 +45,14 @@ namespace RecrutingAssistantApp
                 typeOfWork.WorkID = _workid;
                 typeOfWorkProcess.Update(typeOfWork);
             }
+            Close();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-        private void Load(TypeOfWorkDto typeOfWork)
+        public void Load(TypeOfWorkDto typeOfWork)
         {
             if (typeOfWork == null)
                 return;

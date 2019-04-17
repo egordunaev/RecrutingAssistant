@@ -36,7 +36,7 @@
         <TextBox Name="tbMisc" Grid.Row="5" Grid.Column="1" Width="165" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Label Content="Тип работы" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="180" Grid.Column="0" Grid.Row="6"/>
         <ComboBox Name="cbTypeOfWork" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="165" Grid.Column="1" Grid.Row="6" ItemsSource="{Binding}" DisplayMemberPath="Name"/>
-        <Label Content="" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="180" Grid.Column="0" Grid.Row="7"/>
+        <Label Content="" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="180" Grid.Column="0" Grid.Row="7" Height="20"/>
         <Button Name="btnSave" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="8" Click="btnSave_Click"/>
         <Button Name="btnCancel" Content="Отмена" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="8" Click="btnCancel_Click"/>
     </Grid>

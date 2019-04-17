@@ -20,14 +20,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Имя вакансии" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="0"/>
-        <TextBox Name="tbPositionName" Grid.Row="0" Grid.Column="1" Width="135" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBox Name="tbPositionName" Grid.Row="0" Grid.Column="1" Width="120" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Label Content="Открытость" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="1"/>
-        <TextBox Name="tbIsOpen" Grid.Row="1" Grid.Column="1" Width="135" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBox Name="tbIsOpen" Grid.Row="1" Grid.Column="1" Width="120" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Label Content="Зарплата" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="2"/>
-        <TextBox Name="tbSalary" Grid.Row="2" Grid.Column="1" Width="135" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBox Name="tbSalary" Grid.Row="2" Grid.Column="1" Width="120" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Label Content="Работодатель" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="3"/>
-        <ComboBox Name="cbEmployer" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="135" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding}" DisplayMemberPath="Employer"/>
-        <Label Content="" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="4"/>
+        <ComboBox Name="cbEmployer" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="120" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding}" DisplayMemberPath="Employer"/>
+        <Label Content="" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="4" Height="20"/>
         <Button Name="btnSave" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="5" Click="btnSave_Click"/>
         <Button Name="btnCancel" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="5" Click="btnCancel_Click"/>
     </Grid>
