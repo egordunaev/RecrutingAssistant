@@ -11,6 +11,7 @@ namespace RA.DataAccess
 {
     public class EmployerDao : BaseDao, IEmployerDao
     {
+        private static IDictionary<int, Employer> _Employers;
         /// <summary>
         /// Добавить нового работодателя
         /// </summary>
@@ -56,23 +57,9 @@ namespace RA.DataAccess
         /// <returns></returns>
         public Employer Get(int EmployerID)
         {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var cmd = connection.CreateCommand())
-                {
-                    cmd.CommandText = "SELECT EmployerID, Name, Address, PhoneNumber, WorkID FROM Employer WHERE EmployerID=@EmployerID";
-                    cmd.Parameters.AddWithValue("@EmployerID", EmployerID);
-                    using (var datareader = cmd.ExecuteReader())
-                    {
-                        if (datareader.Read())
-                        {
-                            return !datareader.Read() ? null : LoadEmployer(datareader);
-                        }
-                        return null;
-                    }
-                }
-            }
+            if (_Employers == null)
+                Load();
+            return _Employers.ContainsKey(EmployerID) ? _Employers[EmployerID] : null;
         }
         /// <summary>
         /// Получить всех работодателей
@@ -152,6 +139,43 @@ namespace RA.DataAccess
             if (phonenumber != DBNull.Value)
                 employer.PhoneNumber = reader.GetString(reader.GetOrdinal("PhoneNumber"));
             return employer;
+        }
+        private IList<Employer> LoadInternal()
+        {
+            IList<Employer> employers = new List<Employer>();
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT EmployerID, Name, Address, PhoneNumber, WorkID FROM Employer";
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            employers.Add(LoadEmployer(reader));
+                        }
+                    }
+                }
+            }
+            return employers;
+        }
+        public IList<Employer> Load()
+        {
+            _Employers = new Dictionary<int, Employer>();
+            var employers = LoadInternal();
+            foreach(var employer in employers)
+            {
+                _Employers.Add(employer.EmployerID, employer);
+            }
+            return _Employers.Values.ToList();
+        }
+        public void Reset(int EmployerID)
+        {
+            if (_Employers == null)
+                return;
+             _Employers.Clear();
         }
     }
 }

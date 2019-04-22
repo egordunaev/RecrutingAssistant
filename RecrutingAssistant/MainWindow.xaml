@@ -58,7 +58,7 @@
                 <DataGridTextColumn Header="Название" Binding="{Binding Path=PositionName}"/>
                 <DataGridTextColumn Header="Открытость" Binding="{Binding Path=IsOpen}"/>
                 <DataGridTextColumn Header="Зарплата" Binding="{Binding Path=Salary}"/>
-                <DataGridTextColumn Header="Работодатель" Binding="{Binding Path=Employer.Name}"/>
+                <DataGridTextColumn Header="Работодатель" Binding="{Binding Path=employer.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="dgDeal" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False">

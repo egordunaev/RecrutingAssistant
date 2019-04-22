@@ -11,7 +11,7 @@ namespace RA.BusinessLayer
 {
     public class EmployerProcessDb : IEmployerProcess
     {
-        private readonly IEmployerDao employerDao;
+        private static IEmployerDao employerDao = new EmployerDao();
         public EmployerProcessDb()
         {
             employerDao = DaoFactory.GetEmployerDao();
@@ -33,7 +33,7 @@ namespace RA.BusinessLayer
 
         public IList<EmployerDto> GetList()
         {
-            return DtoConverter.Convert(employerDao.GetAll());
+            return DtoConverter.Convert(DaoFactory.GetEmployerDao().Load());
         }
 
         public void Update(EmployerDto employer)
