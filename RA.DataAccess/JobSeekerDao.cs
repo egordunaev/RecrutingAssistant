@@ -11,6 +11,28 @@ namespace RA.DataAccess
 {
     public class JobSeekerDao : BaseDao, IJobSeekerDao
     {
+        private static IDictionary<int, JobSeeker> Seekers;
+        private IList<JobSeeker> LoadInternal()
+        {
+            IList<JobSeeker> jobSeekers = new List<JobSeeker>();
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT SeekerID, FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker";
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            jobSeekers.Add(LoadSeeker(reader));
+                        }
+                    }
+                }
+            }
+            return jobSeekers;
+        }
         /// <summary>
         /// Добавить соискателя
         /// </summary>
@@ -62,23 +84,9 @@ namespace RA.DataAccess
         /// <returns></returns>
         public JobSeeker Get(int SeekerID)
         {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var cmd = connection.CreateCommand())
-                {
-                    cmd.CommandText = "SELECT FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker WHERE SeekerID=@SeekerID";
-                    cmd.Parameters.AddWithValue("@SeekerID", SeekerID);
-                    using (var datareader = cmd.ExecuteReader())
-                    {
-                        if (datareader.Read())
-                        {
-                            return !datareader.Read() ? null : LoadSeeker(datareader);
-                        }
-                        return null;
-                    }
-                }
-            }
+            if (Seekers == null)
+                Load();
+            return Seekers.ContainsKey(SeekerID) ? Seekers[SeekerID] : null;
         }
         /// <summary>
         /// Получить всех соискателей
@@ -116,6 +124,7 @@ namespace RA.DataAccess
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE JobSeeker SET FirstName=@FirstName, SecondName=@SecondName, ThirdName=@ThirdName, Qualification=@Qualification, AssumedSalary=@AssumedSalary, Misc=@Misc, WorkID=@WorkID WHERE SeekerID=@SeekerID)";
+                    cmd.Parameters.AddWithValue("@SeekerID", seeker.SeekerID);
                     cmd.Parameters.AddWithValue("@FirstName", seeker.FirstName);
                     cmd.Parameters.AddWithValue("@SecondName", seeker.SecondName);
                     cmd.Parameters.AddWithValue("@WorkID", seeker.WorkID);
@@ -173,6 +182,23 @@ namespace RA.DataAccess
             if (misc != DBNull.Value)
                 seeker.Misc = reader.GetString(reader.GetOrdinal("Misc"));
             return seeker;
+        }
+
+        public IList<JobSeeker> Load()
+        {
+            Seekers = new Dictionary<int, JobSeeker>();
+            var seekers = LoadInternal();
+            foreach(var seeker in seekers)
+            {
+                Seekers.Add(seeker.SeekerID, seeker);
+            }
+            return Seekers.Values.ToList();
+        }
+        public void Reset()
+        {
+            if (Seekers == null)
+                return;
+            Seekers.Clear();
         }
     }
 }

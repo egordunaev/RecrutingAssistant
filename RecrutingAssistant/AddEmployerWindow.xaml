@@ -26,7 +26,7 @@
         <Label Content="Номер телефона" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="2"/>
         <TextBox Name="tbPhoneNumber" Grid.Row="2" Grid.Column="1" Width="132" Margin="0,3,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Label Content="Тип работы" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="3"/>
-        <ComboBox Name="cbTypeOfWork" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="132" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding}" DisplayMemberPath="TypeOfWork"/>
+        <ComboBox Name="cbTypeOfWork" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="132" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding}" DisplayMemberPath="Name"/>
         <Label Content="" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="4" Height="20"/>
         <Button Name="btnSave" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="5" Click="btnSave_Click"/>
         <Button Name="btnCancel" Content="Отмена" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="5" Click="btnCancel_Click"/>

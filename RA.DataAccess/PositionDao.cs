@@ -11,6 +11,28 @@ namespace RA.DataAccess
 {
     public class PositionDao : BaseDao, IPositionDao
     {
+        private static IDictionary<int, Position> Positions;
+        private IList<Position> LoadInternal()
+        {
+            IList<Position> positions = new List<Position>();
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT PositionID, PositionName, IsOpen, Salary, EmployerID FROM Position";
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            positions.Add(LoadPosition(reader));
+                        }
+                    }
+                }
+            }
+            return positions;
+        }
         /// <summary>
         /// Добавить вакансию
         /// </summary>
@@ -58,23 +80,9 @@ namespace RA.DataAccess
         /// <returns></returns>
         public Position Get(int PositionID)
         {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var cmd = connection.CreateCommand())
-                {
-                    cmd.CommandText = "SELECT PositionID, PositionName, IsOpen, Salary, EmployerID FROM Position WHERE PositionID=@PositionID";
-                    cmd.Parameters.AddWithValue("@PositionID", PositionID);
-                    using (var datareader = cmd.ExecuteReader())
-                    {
-                        if (datareader.Read())
-                        {
-                            return !datareader.Read() ? null : LoadPosition(datareader);
-                        }
-                        return null;
-                    }
-                }
-            }
+            if (Positions == null)
+                Load();
+            return Positions.ContainsKey(PositionID) ? Positions[PositionID] : null;
         }
         /// <summary>
         /// Получить все вакансии
@@ -112,6 +120,7 @@ namespace RA.DataAccess
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE Position SET PositionName=@PositionName, IsOpen=@IsOpen, Salary=@Salary, EmployerID=@EmployerID WHERE PositionID=@PositionID)";
+                    cmd.Parameters.AddWithValue("@PositionID", position.PositionID);
                     cmd.Parameters.AddWithValue("@EmployerID", position.EmployerID);
                     object positionname = (String.IsNullOrEmpty(position.PositionName) == false) ? (object)position.PositionName.ToString() : DBNull.Value;
                     object isopen = (String.IsNullOrEmpty(position.IsOpen) == false) ? (object)position.IsOpen.ToString() : DBNull.Value;
@@ -160,6 +169,23 @@ namespace RA.DataAccess
             if (salary != DBNull.Value)
                 position.Salary = Convert.ToDecimal(reader["Salary"]);
             return position;
+        }
+
+        public IList<Position> Load()
+        {
+            Positions = new Dictionary<int, Position>();
+            var positions = LoadInternal();
+            foreach(var position in positions)
+            {
+                Positions.Add(position.PositionID, position);
+            }
+            return Positions.Values.ToList();
+        }
+        public void Reset()
+        {
+            if (Positions == null)
+                return;
+            Positions.Clear();
         }
     }
 }

@@ -97,6 +97,7 @@ namespace RA.DataAccess
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE Employer SET Name=@Name, Address=@Address, PhoneNumber=@PhoneNumber, WorkID=@WorkID WHERE EmployerID=@EmployerID)";
+                    cmd.Parameters.AddWithValue("@EmployerID", employer.EmployerID);
                     cmd.Parameters.AddWithValue("@Name", employer.Name);
                     cmd.Parameters.AddWithValue("@Address", employer.Address);
                     cmd.Parameters.AddWithValue("@WorkID", employer.WorkID);

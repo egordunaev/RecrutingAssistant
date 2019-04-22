@@ -115,6 +115,7 @@ namespace RA.DataAccess
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE TypeOfWork SET Name=@Name WHERE WorkID=@WorkID)";
+                    cmd.Parameters.AddWithValue("@WorkID", work.WorkID);
                     cmd.Parameters.AddWithValue("@Name", work.Name);
                     cmd.ExecuteNonQuery();
                 }

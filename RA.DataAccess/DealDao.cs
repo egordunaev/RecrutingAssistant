@@ -113,6 +113,7 @@ namespace RA.DataAccess
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE Deal SET DateOfDeal=@DateOfDeal, Commission=@Commission, PositionID=@PositionID, SeekerID=@SeekerID WHERE DealID=@DealID";
+                    cmd.Parameters.AddWithValue("@DealID", deal.DealID);
                     cmd.Parameters.AddWithValue("@SeekerID", deal.SeekerID);
                     cmd.Parameters.AddWithValue("@PositionID", deal.PositionID);
                     object dateofdeal = deal.DateOfDeal.HasValue ? (object)deal.DateOfDeal.Value : DBNull.Value;

@@ -183,7 +183,7 @@ namespace RecrutingAssistant
             MessageBoxResult result = MessageBox.Show("Удалить соискателя: " + item.FirstName+" "+item.SecondName + "?", "Удаление соискателей", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result != MessageBoxResult.Yes)
                 return;
-            ProcessFactory.GetWorkProcess().Delete(item.SeekerID);
+            ProcessFactory.GetSeekerProcess().Delete(item.SeekerID);
             btnRefresh_Click(sender, e);
         }
         private void btnDeleteEmployer_Click(object sender, RoutedEventArgs e)
@@ -196,7 +196,7 @@ namespace RecrutingAssistant
             MessageBoxResult result = MessageBox.Show("Удалить работодателя: " + item.Name + "?", "Удаление работодателей", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result != MessageBoxResult.Yes)
                 return;
-            ProcessFactory.GetWorkProcess().Delete(item.EmployerID);
+            ProcessFactory.GetEmployerProcess().Delete(item.EmployerID);
             btnRefresh_Click(sender, e);
         }
         private void btnDeletePosition_Click(object sender, RoutedEventArgs e)
@@ -209,7 +209,7 @@ namespace RecrutingAssistant
             MessageBoxResult result = MessageBox.Show("Удалить вакансию: " + item.PositionName + "?", "Удаление вакансий", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result != MessageBoxResult.Yes)
                 return;
-            ProcessFactory.GetWorkProcess().Delete(item.PositionID);
+            ProcessFactory.GetPositionProcess().Delete(item.PositionID);
             btnRefresh_Click(sender, e);
         }
         private void btnDeleteDeal_Click(object sender, RoutedEventArgs e)
@@ -222,7 +222,7 @@ namespace RecrutingAssistant
             MessageBoxResult result = MessageBox.Show("Удалить сделку №" + item.DealID + "?", "Удаление сделок", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result != MessageBoxResult.Yes)
                 return;
-            ProcessFactory.GetWorkProcess().Delete(item.DealID);
+            ProcessFactory.GetDealProcess().Delete(item.DealID);
             btnRefresh_Click(sender, e);
         }
         // 
@@ -266,19 +266,51 @@ namespace RecrutingAssistant
         }
         private void btnEditSeeker_Click(object sender, RoutedEventArgs e)
         {
-
+            JobSeekerDto item = dgJobSeeker.SelectedItem as JobSeekerDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для редактирования", "Редактирование соискателей");
+            }
+            AddJobSeekerWindow window = new AddJobSeekerWindow();
+            window.Load(item);
+            window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         private void btnEditEmployer_Click(object sender, RoutedEventArgs e)
         {
-
+            EmployerDto item = dgEmployer.SelectedItem as EmployerDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для редактирования", "Редактирование работодателей");
+            }
+            AddEmployerWindow window = new AddEmployerWindow();
+            window.Load(item);
+            window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         private void btnEditPosition_Click(object sender, RoutedEventArgs e)
         {
-
+            PositionDto item = dgPosition.SelectedItem as PositionDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для редактирования", "Редактирование вакансий");
+            }
+            AddPositionWindow window = new AddPositionWindow();
+            window.Load(item);
+            window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         private void btnEditDeal_Click(object sender, RoutedEventArgs e)
         {
-
+            DealDto item = dgDeal.SelectedItem as DealDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для редактирования", "Редактирование сделок");
+            }
+            AddDealWindow window = new AddDealWindow();
+            window.Load(item);
+            window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         //
         //   STATUS

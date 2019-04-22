@@ -39,5 +39,6 @@ namespace RA.DataAccess
         /// </summary>
         /// <param name="SeekerID">Номер соискателя</param>
         void Delete(int SeekerID);
+        IList<JobSeeker> Load();
     }
 }
