@@ -47,6 +47,7 @@ namespace RA.DataAccess
                 {
                     cmd.CommandText = "DELETE FROM Deal WHERE DealID=@DealID";
                     cmd.Parameters.AddWithValue("@DealID", DealID);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

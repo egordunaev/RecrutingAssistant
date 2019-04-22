@@ -47,6 +47,7 @@ namespace RA.DataAccess
                 {
                     cmd.CommandText = "DELETE FROM Position WHERE PositionID=@PositionID";
                     cmd.Parameters.AddWithValue("@PositionID", PositionID);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

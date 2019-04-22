@@ -45,6 +45,7 @@ namespace RA.DataAccess
                 {
                     cmd.CommandText = "DELETE FROM Employer WHERE EmployerID=@EmployerID";
                     cmd.Parameters.AddWithValue("@EmployerID", EmployerID);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

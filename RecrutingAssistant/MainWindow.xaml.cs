@@ -59,27 +59,32 @@ namespace RecrutingAssistant
         {
             AddTypeOfWorkWindow window = new AddTypeOfWorkWindow();
             window.ShowDialog();
+            btnRefresh_Click(sender, e);
 
         }
         private void btnAddSeeker_Click(object sender, RoutedEventArgs e)
         {
             AddJobSeekerWindow window = new AddJobSeekerWindow();
             window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         private void btnAddEmployer_Click(object sender, RoutedEventArgs e)
         {
             AddEmployerWindow window = new AddEmployerWindow();
             window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         private void btnAddPosition_Click(object sender, RoutedEventArgs e)
         {
             AddPositionWindow window = new AddPositionWindow();
             window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         private void btnAddDeal_Click(object sender, RoutedEventArgs e)
         {
             AddDealWindow window = new AddDealWindow();
             window.ShowDialog();
+            btnRefresh_Click(sender, e);
         }
         // 
         // REFRESH FUNCTIONS
@@ -170,19 +175,55 @@ namespace RecrutingAssistant
         }
         private void btnDeleteSeeker_Click(object sender, RoutedEventArgs e)
         {
-
+            JobSeekerDto item = dgJobSeeker.SelectedItem as JobSeekerDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для удаления", "Удаление соискателей");
+            }
+            MessageBoxResult result = MessageBox.Show("Удалить соискателя: " + item.FirstName+" "+item.SecondName + "?", "Удаление соискателей", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result != MessageBoxResult.Yes)
+                return;
+            ProcessFactory.GetWorkProcess().Delete(item.SeekerID);
+            btnRefresh_Click(sender, e);
         }
         private void btnDeleteEmployer_Click(object sender, RoutedEventArgs e)
         {
-
+            EmployerDto item = dgEmployer.SelectedItem as EmployerDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для удаления", "Удаление работодателей");
+            }
+            MessageBoxResult result = MessageBox.Show("Удалить работодателя: " + item.Name + "?", "Удаление работодателей", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result != MessageBoxResult.Yes)
+                return;
+            ProcessFactory.GetWorkProcess().Delete(item.EmployerID);
+            btnRefresh_Click(sender, e);
         }
         private void btnDeletePosition_Click(object sender, RoutedEventArgs e)
         {
-
+            PositionDto item = dgPosition.SelectedItem as PositionDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для удаления", "Удаление вакансий");
+            }
+            MessageBoxResult result = MessageBox.Show("Удалить вакансию: " + item.PositionName + "?", "Удаление вакансий", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result != MessageBoxResult.Yes)
+                return;
+            ProcessFactory.GetWorkProcess().Delete(item.PositionID);
+            btnRefresh_Click(sender, e);
         }
         private void btnDeleteDeal_Click(object sender, RoutedEventArgs e)
         {
-
+            DealDto item = dgDeal.SelectedItem as DealDto;
+            if (item == null)
+            {
+                MessageBox.Show("Выберите запись для удаления", "Удаление сделок");
+            }
+            MessageBoxResult result = MessageBox.Show("Удалить сделку №" + item.DealID + "?", "Удаление сделок", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result != MessageBoxResult.Yes)
+                return;
+            ProcessFactory.GetWorkProcess().Delete(item.DealID);
+            btnRefresh_Click(sender, e);
         }
         // 
         // EDIT FUNCTIONS

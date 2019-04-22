@@ -32,3 +32,37 @@ D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\D
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddTypeOfWorkWindow.baml
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\SettingsWindow.baml
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csproj.CopyComplete
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RecrutingAssistantApp.exe.config
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RecrutingAssistantApp.exe
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RecrutingAssistantApp.pdb
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RA.BusinessLayer.dll
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RA.Dto.dll
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RA.DataAccess.dll
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RA.BusinessLayer.pdb
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RA.Dto.pdb
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\bin\Debug\RA.DataAccess.pdb
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csprojAssemblyReference.cache
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddDealWindow.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddEmployerWindow.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddJobSeekerWindow.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddPositionWindow.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddTypeOfWorkWindow.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\MainWindow.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\SettingsWindow.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\App.g.cs
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp_MarkupCompile.cache
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp_MarkupCompile.lref
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddDealWindow.baml
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddEmployerWindow.baml
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddJobSeekerWindow.baml
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddPositionWindow.baml
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\AddTypeOfWorkWindow.baml
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\MainWindow.baml
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\SettingsWindow.baml
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.g.resources
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.Properties.Resources.resources
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csproj.GenerateResource.cache
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csproj.CoreCompileInputs.cache
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csproj.CopyComplete
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.exe
+C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.pdb

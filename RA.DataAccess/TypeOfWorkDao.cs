@@ -63,6 +63,8 @@ namespace RA.DataAccess
                 {
                     cmd.CommandText = "DELETE FROM TypeOfWork WHERE WorkID=@WorkID";
                     cmd.Parameters.AddWithValue("@WorkID", WorkID);
+                    cmd.ExecuteNonQuery();
+
                 }
             }
         }

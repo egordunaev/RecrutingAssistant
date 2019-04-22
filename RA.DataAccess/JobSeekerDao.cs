@@ -51,6 +51,7 @@ namespace RA.DataAccess
                 {
                     cmd.CommandText = "DELETE FROM JobSeeker WHERE SeekerID=@SeekerID";
                     cmd.Parameters.AddWithValue("@SeekerID", SeekerID);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
