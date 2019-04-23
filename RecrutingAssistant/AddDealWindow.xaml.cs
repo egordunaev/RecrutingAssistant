@@ -30,7 +30,7 @@ namespace RecrutingAssistantApp
                 return;
             _dealID = dealDto.DealID;
             if (dealDto.DateOfDeal.HasValue)
-                dpDateOfDeal.DisplayDate = dealDto.DateOfDeal.Value;
+                dpDateOfDeal.SelectedDate = dealDto.DateOfDeal.Value;
             if (dealDto.Commission.HasValue)
                 tbCommissions.Text = dealDto.Commission.ToString();
             if(dealDto.Position!=null)
@@ -61,7 +61,7 @@ namespace RecrutingAssistantApp
             InitializeComponent();
             cbPosition.ItemsSource = (from P in Positions orderby P.PositionName select P);
             cbPosition.SelectedIndex = 0;
-            cbSeeker.ItemsSource = (from S in Seekers orderby (S.FirstName + S.SecondName) select S);
+            cbSeeker.ItemsSource = (from S in Seekers orderby S.SecondName select S);
             cbSeeker.SelectedIndex = 0;
         }
 
@@ -86,7 +86,7 @@ namespace RecrutingAssistantApp
             decimal commission;
             decimal.TryParse(tbCommissions.Text, out commission);
             DealDto deal = new DealDto();
-            deal.DateOfDeal = dpDateOfDeal.DisplayDate;
+            deal.DateOfDeal = dpDateOfDeal.SelectedDate.Value.Date;
             deal.Commission = commission;
             deal.Position = cbPosition.SelectedItem as PositionDto;
             deal.Seeker = cbSeeker.SelectedItem as JobSeekerDto;

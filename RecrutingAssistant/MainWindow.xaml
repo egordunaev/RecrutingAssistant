@@ -64,7 +64,8 @@
         <DataGrid Name="dgDeal" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=DealID}"/>
-                <DataGridTextColumn Header="Соискатель" Binding="{Binding Path=Seeker.SecondName}"/>
+                <DataGridTextColumn Header="Имя соискателя" Binding="{Binding Path=Seeker.SecondName}"/>
+                <DataGridTextColumn Header="Фамилия соискателя" Binding="{Binding Path=Seeker.FirstName}"/>
                 <DataGridTextColumn Header="Вакансия" Binding="{Binding Path=Position.PositionName}"/>
                 <DataGridTextColumn Header="Дата сделки" Binding="{Binding Path=DateOfDeal}"/>
                 <DataGridTextColumn Header="Комиссионные" Binding="{Binding Path=Commission}"/>
