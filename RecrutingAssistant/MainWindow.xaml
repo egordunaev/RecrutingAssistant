@@ -25,13 +25,13 @@
             <ColumnDefinition Width="123*"/>
             <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="dgTypeOfWork" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1" Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False">
+        <DataGrid Name="dgTypeOfWork" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1" Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False" GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=WorkID}"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="dgJobSeeker" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False">
+        <DataGrid Name="dgJobSeeker" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False" GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=SeekerID}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}"/>
@@ -43,7 +43,7 @@
                 <DataGridTextColumn Header="Тип работы" Binding="{Binding Path=Work.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="dgEmployer" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False">
+        <DataGrid Name="dgEmployer" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False" GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=EmployerID}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}"/>
@@ -52,7 +52,7 @@
                 <DataGridTextColumn Header="Тип работы" Binding="{Binding Path=Work.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="dgPosition" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False">
+        <DataGrid Name="dgPosition" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False" GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=PositionID}"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Path=PositionName}"/>
@@ -61,7 +61,7 @@
                 <DataGridTextColumn Header="Работодатель" Binding="{Binding Path=employer.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="dgDeal" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False">
+        <DataGrid Name="dgDeal" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1"  Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False" GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=DealID}"/>
                 <DataGridTextColumn Header="Имя соискателя" Binding="{Binding Path=Seeker.SecondName}"/>
