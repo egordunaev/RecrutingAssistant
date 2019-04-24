@@ -61,7 +61,7 @@ namespace RecrutingAssistantApp
             InitializeComponent();
             cbPosition.ItemsSource = (from P in Positions orderby P.PositionName select P);
             cbPosition.SelectedIndex = 0;
-            cbSeeker.ItemsSource = (from S in Seekers orderby S.SecondName select S);
+            cbSeeker.ItemsSource = (from S in Seekers orderby S.FullName select S);
             cbSeeker.SelectedIndex = 0;
         }
 

@@ -20,7 +20,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Соискатель" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="100" Grid.Column="0" Grid.Row="0"/>
-        <ComboBox Name="cbSeeker" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="122" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding}" DisplayMemberPath="FirstName"/>
+        <ComboBox Name="cbSeeker" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="122" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding}" DisplayMemberPath="FullName"/>
         <Label Content="Вакансия" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Width="100" VerticalAlignment="Center"/>
         <ComboBox Name="cbPosition" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="122" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding}" DisplayMemberPath="PositionName"/>
         <Label Content="Дата сделки" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" Width="100" VerticalAlignment="Center"/>

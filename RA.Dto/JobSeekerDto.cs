@@ -43,5 +43,15 @@ namespace RA.Dto
         /// Прочая информация о соискателе
         /// </summary>
         public string Misc { get; set; }
+        /// <summary>
+        /// Формирует автоматически ФИО соискателя
+        /// </summary>
+        public string FullName
+        {
+            get
+            {
+                return $"{ FirstName } { SecondName } { ThirdName }";
+            }
+        }
     }
 }
