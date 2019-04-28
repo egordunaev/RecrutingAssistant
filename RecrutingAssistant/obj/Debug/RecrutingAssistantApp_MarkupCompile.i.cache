@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programs\_dev\Projects\RecrutingAssistant\RecrutingAssistant\App.xaml
-7-975753959
+8-413604329
 
-111125442613
+16-1331379406
 15921409945
-AddDealWindow.xaml;AddEmployerWindow.xaml;AddJobSeekerWindow.xaml;AddPositionWindow.xaml;AddTypeOfWorkWindow.xaml;MainWindow.xaml;SettingsWindow.xaml;
+AddDealWindow.xaml;AddEmployerWindow.xaml;AddJobSeekerWindow.xaml;AddPositionWindow.xaml;AddTypeOfWorkWindow.xaml;MainWindow.xaml;SearchWindow.xaml;SettingsWindow.xaml;
 
-False
+True
 

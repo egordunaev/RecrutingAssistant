@@ -4,3 +4,9 @@ D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.dll
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.pdb
 D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.csprojAssemblyReference.cache
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.Dto\bin\Debug\RA.Dto.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.Dto\bin\Debug\RA.Dto.pdb
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.csprojResolveAssemblyReference.cache
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.csproj.CoreCompileInputs.cache
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.Dto\obj\Debug\RA.Dto.pdb

@@ -20,3 +20,14 @@ C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA
 C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.csproj.CopyComplete
 C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.dll
 C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.pdb
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\bin\Debug\RA.BusinessLayer.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\bin\Debug\RA.BusinessLayer.pdb
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\bin\Debug\RA.DataAccess.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\bin\Debug\RA.Dto.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\bin\Debug\RA.DataAccess.pdb
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\bin\Debug\RA.Dto.pdb
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.csproj.CoreCompileInputs.cache
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.csproj.CopyComplete
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.pdb

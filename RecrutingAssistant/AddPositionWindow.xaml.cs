@@ -30,9 +30,9 @@ namespace RecrutingAssistantApp
             _positionid = positionDto.PositionID;
             if (positionDto.Salary.HasValue)
                 tbSalary.Text = positionDto.Salary.ToString();
-            if (string.IsNullOrEmpty(positionDto.PositionName) == false)
+            if (!string.IsNullOrEmpty(positionDto.PositionName))
                 tbPositionName.Text = positionDto.PositionName;
-            if (string.IsNullOrEmpty(positionDto.IsOpen))
+            if (!string.IsNullOrEmpty(positionDto.IsOpen))
                 tbIsOpen.Text = positionDto.IsOpen;
             if(positionDto.employer!=null)
             {

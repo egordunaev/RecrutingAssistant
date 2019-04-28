@@ -10,3 +10,9 @@ C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.Da
 C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.dll
 C:\Users\dk310\Documents\GitHub\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.pdb
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.DataAccess\bin\Debug\RA.DataAccess.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.DataAccess\bin\Debug\RA.DataAccess.pdb
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.csprojResolveAssemblyReference.cache
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.csproj.CoreCompileInputs.cache
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.dll
+D:\Programs\_dev\Projects\RecrutingAssistant\RA.DataAccess\obj\Debug\RA.DataAccess.pdb

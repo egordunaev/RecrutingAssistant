@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="Вакансии" Height="200" Width="285" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Вакансии" Height="200" Width="295" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
@@ -29,6 +29,6 @@
         <ComboBox Name="cbEmployer" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="120" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding}" DisplayMemberPath="Name"/>
         <Label Content="" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="140" Grid.Column="0" Grid.Row="4" Height="20"/>
         <Button Name="btnSave" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="5" Click="btnSave_Click"/>
-        <Button Name="btnCancel" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="5" Click="btnCancel_Click"/>
+        <Button Name="btnCancel" Content="Отмена" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="5" Click="btnCancel_Click"/>
     </Grid>
 </Window>

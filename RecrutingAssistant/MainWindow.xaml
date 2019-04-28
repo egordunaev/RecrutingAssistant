@@ -67,7 +67,7 @@
                 <DataGridTextColumn Header="Имя соискателя" Binding="{Binding Path=Seeker.SecondName}"/>
                 <DataGridTextColumn Header="Фамилия соискателя" Binding="{Binding Path=Seeker.FirstName}"/>
                 <DataGridTextColumn Header="Вакансия" Binding="{Binding Path=Position.PositionName}"/>
-                <DataGridTextColumn Header="Дата сделки" Binding="{Binding Path=DateOfDeal}"/>
+                <DataGridTextColumn Header="Дата сделки" Binding="{Binding Path=DateOfDeal, StringFormat=\{0:dd.MM.yyyy\}}"/>
                 <DataGridTextColumn Header="Комиссионные" Binding="{Binding Path=Commission}"/>
             </DataGrid.Columns>
         </DataGrid>
