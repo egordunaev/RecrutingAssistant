@@ -38,5 +38,6 @@ namespace RA.BusinessLayer
         /// </summary>
         /// <param name="PositionID">Номер вакансии</param>
         void Delete(int PositionID);
+        IList<PositionDto> SearchPosition(string PositionName, string Employer);
     }
 }

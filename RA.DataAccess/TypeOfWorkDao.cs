@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using RA.DataAccess.Entities;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace RA.DataAccess
 {
@@ -165,6 +167,36 @@ namespace RA.DataAccess
             if (TypesOfWork == null)
                 return;
             TypesOfWork.Clear();
+        }
+
+        public IList<TypeOfWork> SearchWork(string TypeOfWork)
+        {
+            try
+            {
+                IList<TypeOfWork> typeOfWorks = new List<TypeOfWork>();
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT WorkID, Name FROM TypeOfWork WHERE TypeOfWork.Name like @Name";
+                        cmd.Parameters.AddWithValue("@Name", "%" + TypeOfWork);
+                        using (var dataReader = cmd.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                typeOfWorks.Add(LoadTypeOfWork(dataReader));
+                            }
+                        }
+                    }
+                }
+                return typeOfWorks;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
     }
 }

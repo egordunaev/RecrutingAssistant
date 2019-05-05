@@ -33,6 +33,11 @@ namespace RA.BusinessLayer
             return new List<PositionDto>(Positions.Values);
         }
 
+        public IList<PositionDto> SearchPosition(string PositionName, string Employer)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(PositionDto position)
         {
             if (Positions.ContainsKey(position.PositionID))

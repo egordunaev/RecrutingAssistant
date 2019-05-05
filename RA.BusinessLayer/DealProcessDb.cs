@@ -36,6 +36,11 @@ namespace RA.BusinessLayer
             return DtoConverter.Convert(dealDao.GetAll());
         }
 
+        public IList<DealDto> SearchDeal(string SeekerName, string PositionName, string Commission)
+        {
+            return DtoConverter.Convert(dealDao.SearchDeal(SeekerName, PositionName, Commission));
+        }
+
         public void Update(DealDto deal)
         {
             dealDao.Update(DtoConverter.Convert(deal));

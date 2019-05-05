@@ -33,6 +33,11 @@ namespace RA.BusinessLayer
             return new List<TypeOfWorkDto>(Works.Values);
         }
 
+        public IList<TypeOfWorkDto> SearchWork(string TypeOfWork)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(TypeOfWorkDto workDto)
         {
             if (Works.ContainsKey(workDto.WorkID))

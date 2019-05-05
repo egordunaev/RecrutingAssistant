@@ -100,3 +100,5 @@ D:\Programs\_dev\Projects\RecrutingAssistant\RecrutingAssistant\obj\Debug\Recrut
 D:\Programs\_dev\Projects\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.csproj.CopyComplete
 D:\Programs\_dev\Projects\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.exe
 D:\Programs\_dev\Projects\RecrutingAssistant\RecrutingAssistant\obj\Debug\RecrutingAssistantApp.pdb
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\SearchWindow.g.cs
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RecrutingAssistant\obj\Debug\SearchWindow.baml

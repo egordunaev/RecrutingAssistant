@@ -40,5 +40,9 @@ namespace RA.BusinessLayer
         {
             seekerDao.Update(DtoConverter.Convert(seekerDto));
         }
+        public IList<JobSeekerDto> SearchSeekers(string FirstName, string SecondName, string TypeOfWork)
+        {
+            return DtoConverter.Convert(seekerDao.SearchSeekers(FirstName, SecondName, TypeOfWork));
+        }
     }
 }

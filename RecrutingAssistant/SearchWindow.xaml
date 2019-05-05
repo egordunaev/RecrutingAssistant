@@ -5,26 +5,131 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="Поиск" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Поиск" Height="169" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabItem x:Name="JobSeeker" Header="Поиск соискателей">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" Text="Имя художникаа"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Text="Тип работы"/>
-                
-            </Grid>
-        </TabItem>
+        <TabControl>
+            <TabItem x:Name="sJobSeeker" Header="Поиск соискателей">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" Text="Имя Соискателя"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Text="Фамилия Соискателя"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" Text="Тип работы"/>
+                    <TextBox Name="SeekerFirstName" Grid.Row="0" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <TextBox Name="SeekerSecondName" Grid.Row="1" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <ComboBox Name="cbSeekerTypeOfWork" ItemsSource="{Binding}" DisplayMemberPath="Name" Grid.Row="2" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnSearchSeeker" Content="Принять" Margin="3" Width="70" Click="btnSearchSeeker_Click"/>
+                        <Button x:Name="btnCancelSeeker" Content="Отмена" Margin="3" Width="70" Click="BtnCancelSeeker_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="sTypeOfWork" Header="Поиск типов работ">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" Text="Тип работы"/>
+                    <TextBox Name="TypeOfWorkName" Grid.Row="0" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnSearchTypeOfWork" Content="Принять" Margin="3" Width="70" Click="BtnSearchTypeOfWork_Click"/>
+                        <Button x:Name="btnCancelTypeOfWork" Content="Отмена" Margin="3" Width="70" Click="BtnCancelTypeOfWork_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="sEmployers" Header="Поиск работодателей">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" Text="Работодатель"/>
+                    <TextBox Name="EmployerName" Grid.Row="0" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Text="Тип работы"/>
+                    <ComboBox Name="cbEmployerTypeOfWork" ItemsSource="{Binding}" DisplayMemberPath="Name" Grid.Row="1" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnSearchEmployer" Content="Принять" Margin="3" Width="70" Click="BtnSearchEmployer_Click"/>
+                        <Button x:Name="btnCancelEmployer" Content="Отмена" Margin="3" Width="70" Click="BtnCancelEmployer_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="sPositions" Header="Поиск вакансий">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" Text="Вакансия"/>
+                    <TextBox Name="PositionName" Grid.Row="0" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Text="Работодатель"/>
+                    <ComboBox Name="cbEmployer" ItemsSource="{Binding}" DisplayMemberPath="Name" Grid.Row="1" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnSearchPosition" Content="Принять" Margin="3" Width="70" Click="BtnSearchPosition_Click"/>
+                        <Button x:Name="btnCancelPosition" Content="Отмена" Margin="3" Width="70" Click="BtnCancelPosition_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="sDeals" Header="Поиск сделок">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" Text="Соискатель"/>
+                    <ComboBox Name="cbJobSeeker" ItemsSource="{Binding}" DisplayMemberPath="FullName" Grid.Row="0" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" Text="Вакансия"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" Text="Комиссионные"/>
+                    <TextBox Name="Commission" Grid.Row="2" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <ComboBox Name="cbPosition" ItemsSource="{Binding}" DisplayMemberPath="PositionName" Grid.Row="1" Grid.Column="1" Margin="3" Width="200" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnSearchDeal" Content="Принять" Margin="3" Width="70" Click="BtnSearchDeal_Click"/>
+                        <Button x:Name="btnCancelDeal" Content="Отмена" Margin="3" Width="70" Click="BtnCancelDeal_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

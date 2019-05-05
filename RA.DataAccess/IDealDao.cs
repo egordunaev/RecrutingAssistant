@@ -39,5 +39,6 @@ namespace RA.DataAccess
         /// </summary>
         /// <param name="DealID">Номер сделки</param>
         void Delete(int DealID);
+        IList<Deal> SearchDeal(string SeekerName, string PositionName, string Commission);
     }
 }

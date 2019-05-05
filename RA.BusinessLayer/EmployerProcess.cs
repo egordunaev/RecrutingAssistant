@@ -33,6 +33,11 @@ namespace RA.BusinessLayer
             return new List<EmployerDto>(Employers.Values);
         }
 
+        public IList<EmployerDto> SearchEmployer(string Name, string TypeOfWork)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(EmployerDto employer)
         {
             if (Employers.ContainsKey(employer.EmployerID))

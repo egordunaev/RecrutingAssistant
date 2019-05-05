@@ -75,7 +75,7 @@
         <Button Name="btnRefresh" Content="Обновить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="2"  Click="btnRefresh_Click"  Width="65"/>
         <Button Name="btnDelete" Content="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="3"  Click="btnDelete_Click"  Width="65" />
         <Button Name="btnEdit" Content="Изменить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="4"  Click="btnEdit_Click" Width="65" />
-        <Button Name="btnSearch" Content="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="5" Width="65" />
+        <Button Name="btnSearch" Content="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="5" Width="65" Click="btnSearch_Click" />
         <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="1" Margin="0,5">
             <Button HorizontalAlignment="Center" x:Name="btnTypeOfWork" VerticalAlignment="Center" Height="45" Width="70" Click="btnTypeOfWork_Click">
                 <Button.ToolTip>

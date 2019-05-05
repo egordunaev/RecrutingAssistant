@@ -38,5 +38,6 @@ namespace RA.BusinessLayer
         /// </summary>
         /// <param name="DealID">Номер сделки</param>
         void Delete(int DealID);
+        IList<DealDto> SearchDeal(string SeekerName, string PositionName, string Commission);
     }
 }

@@ -436,5 +436,52 @@ namespace RecrutingAssistant
             SettingsWindow window = new SettingsWindow();
             window.ShowDialog();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            SearchWindow window = new SearchWindow(status);
+            {
+                switch(status)
+                {
+                    case "JobSeeker":
+                        window.ShowDialog();
+                        if(window.exec)
+                        {
+                            this.dgJobSeeker.ItemsSource = window.FoundSeekers;
+                        }
+                        break;
+                    case "TypeOfWork":
+                        window.ShowDialog();
+                        if (window.exec)
+                        {
+                            this.dgTypeOfWork.ItemsSource = window.FoundWorks;
+                        }
+                        break;
+                    case "Employer":
+                        window.ShowDialog();
+                        if (window.exec)
+                        {
+                            this.dgEmployer.ItemsSource = window.FoundEmployers;
+                        }
+                        break;
+                    case "Position":
+                        window.ShowDialog();
+                        if (window.exec)
+                        {
+                            this.dgPosition.ItemsSource = window.FoundPositions;
+                        }
+                        break;
+                    case "Deal":
+                        window.ShowDialog();
+                        if (window.exec)
+                        {
+                            this.dgDeal.ItemsSource = window.FoundDeals;
+                        }
+                        break;
+                    default: MessageBox.Show("Для поиска необходимо выбрать таблицу!");
+                        break;
+                }
+            }
+        }
     }
 }

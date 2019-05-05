@@ -33,6 +33,11 @@ namespace RA.BusinessLayer
             return new List<DealDto>(Deals.Values);
         }
 
+        public IList<DealDto> SearchDeal(string SeekerName, string PositionName, string Commission)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(DealDto deal)
         {
             if (Deals.ContainsKey(deal.DealID))

@@ -44,5 +44,6 @@ namespace RA.DataAccess
         /// </summary>
         /// <returns></returns>
         IList<TypeOfWork> Load();
+        IList<TypeOfWork> SearchWork(string TypeOfWork);
     }
 }

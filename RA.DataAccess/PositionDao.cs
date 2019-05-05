@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using RA.DataAccess.Entities;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace RA.DataAccess
 {
@@ -186,6 +188,38 @@ namespace RA.DataAccess
             if (Positions == null)
                 return;
             Positions.Clear();
+        }
+
+        public IList<Position> SearchPosition(string PositionName, string Employer)
+        {
+            try
+            {
+                IList<Position> positions = new List<Position>();
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT PositionID, PositionName, IsOpen, Salary, Position.EmployerID FROM Position JOIN Employer on Position.EmployerID = Employer.EmployerID WHERE PositionName like @Name AND Employer.Name like @Employer";
+                        cmd.Parameters.AddWithValue("@Name", "%" + PositionName + "%");
+                        cmd.Parameters.AddWithValue("@Employer", "%" + Employer);
+                        using (var dataReader = cmd.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                positions.Add(LoadPosition(dataReader));
+                            }
+                        }
+                    }
+                }
+
+                return positions;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
     }
 }

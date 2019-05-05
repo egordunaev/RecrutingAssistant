@@ -36,6 +36,11 @@ namespace RA.BusinessLayer
             return DtoConverter.Convert(DaoFactory.GetEmployerDao().Load());
         }
 
+        public IList<EmployerDto> SearchEmployer(string Name, string TypeOfWork)
+        {
+            return DtoConverter.Convert(employerDao.SearchEmployer(Name, TypeOfWork));
+        }
+
         public void Update(EmployerDto employer)
         {
             employerDao.Update(DtoConverter.Convert(employer));

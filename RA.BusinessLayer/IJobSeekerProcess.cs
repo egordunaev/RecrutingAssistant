@@ -39,5 +39,6 @@ namespace RA.BusinessLayer
         /// <param name="SeekerID">Номер соискателя</param>
         void Delete(int SeekerID);
         //IList<JobSeekerDto> Load();
+        IList<JobSeekerDto> SearchSeekers(string FirstName, string SecondName, string TypeOfWork);
     }
 }

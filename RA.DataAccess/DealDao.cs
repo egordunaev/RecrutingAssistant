@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using RA.DataAccess.Entities;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace RA.DataAccess
 {
@@ -159,6 +161,39 @@ namespace RA.DataAccess
             deal.PositionID = reader[dealpos] == DBNull.Value ? -1 : reader.GetInt32(dealpos);
             deal.SeekerID = reader[dealseek] == DBNull.Value ? -1 : reader.GetInt32(dealseek);
             return deal;
+        }
+
+        public IList<Deal> SearchDeal(string SeekerName, string PositionName, string Commission)
+        {
+            try
+            {
+                IList<Deal> deals = new List<Deal>();
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT DealID, DateOfDeal, Commission, Deal.PositionID, Deal.SeekerID FROM Deal JOIN JobSeeker on Deal.SeekerID = JobSeeker.SeekerID Join Position on Deal.PositionID=Position.PositionID WHERE JobSeeker.SecondName+JobSeeker.FirstName+JobSeeker.ThirdName like @SeekerName AND Position.PositionName like @PositionName and Deal.Commission like @Commission";
+                        cmd.Parameters.AddWithValue("@SeekerName", "%" + SeekerName + "%");
+                        cmd.Parameters.AddWithValue("@PositionName", "%" + PositionName + "%");
+                        cmd.Parameters.AddWithValue("@Commission", "%" + Commission + "%");
+                        using (var dataReader = cmd.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                deals.Add(LoadDeal(dataReader));
+                            }
+                        }
+                    }
+                }
+
+                return deals;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
     }
 }

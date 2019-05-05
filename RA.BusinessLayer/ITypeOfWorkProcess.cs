@@ -38,5 +38,6 @@ namespace RA.BusinessLayer
         /// </summary>
         /// <param name="WorkID">Номер типа работы</param>
         void Delete(int WorkID);
+        IList<TypeOfWorkDto> SearchWork(string TypeOfWork);
     }
 }

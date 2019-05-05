@@ -36,6 +36,11 @@ namespace RA.BusinessLayer
             return DtoConverter.Convert(positionDao.GetAll());
         }
 
+        public IList<PositionDto> SearchPosition(string PositionName, string Employer)
+        {
+            return DtoConverter.Convert(positionDao.SearchPosition(PositionName, Employer));
+        }
+
         public void Update(PositionDto position)
         {
             positionDao.Update(DtoConverter.Convert(position));

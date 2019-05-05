@@ -36,6 +36,11 @@ namespace RA.BusinessLayer
             return DtoConverter.Convert(workDao.GetAll());
         }
 
+        public IList<TypeOfWorkDto> SearchWork(string TypeOfWork)
+        {
+            return DtoConverter.Convert(workDao.SearchWork(TypeOfWork));
+        }
+
         public void Update(TypeOfWorkDto workDto)
         {
             workDao.Update(DtoConverter.Convert(workDto));

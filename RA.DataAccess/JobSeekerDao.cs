@@ -6,32 +6,43 @@ using System.Threading.Tasks;
 using RA.DataAccess.Entities;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace RA.DataAccess
 {
     public class JobSeekerDao : BaseDao, IJobSeekerDao
     {
+
         private static IDictionary<int, JobSeeker> Seekers;
         private IList<JobSeeker> LoadInternal()
         {
-            IList<JobSeeker> jobSeekers = new List<JobSeeker>();
-            using (var conn = GetConnection())
+            try
             {
-                conn.Open();
-                using (var cmd = conn.CreateCommand())
+                IList<JobSeeker> jobSeekers = new List<JobSeeker>();
+                using (var conn = GetConnection())
                 {
-                    cmd.CommandText = "SELECT SeekerID, FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker";
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    using (var reader = cmd.ExecuteReader())
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
                     {
-                        while (reader.Read())
+                        cmd.CommandText = "SELECT SeekerID, FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker";
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            jobSeekers.Add(LoadSeeker(reader));
+                            while (reader.Read())
+                            {
+                                jobSeekers.Add(LoadSeeker(reader));
+                            }
                         }
                     }
                 }
+                return jobSeekers;
             }
-            return jobSeekers;
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
         /// <summary>
         /// Добавить соискателя
@@ -39,25 +50,32 @@ namespace RA.DataAccess
         /// <param name="seeker">Соискатель</param>
         public void Add(JobSeeker seeker)
         {
-            using (var conn = GetConnection())
+            try
             {
-                conn.Open();
-                using (var cmd = conn.CreateCommand())
+                using (var conn = GetConnection())
                 {
-                    cmd.CommandText = "INSERT INTO JobSeeker(FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID)VALUES(@FirstName, @SecondName, @ThirdName, @Qualification, @AssumedSalary, @Misc, @WorkID)";
-                    cmd.Parameters.AddWithValue("@FirstName", seeker.FirstName);
-                    cmd.Parameters.AddWithValue("@SecondName", seeker.SecondName);
-                    cmd.Parameters.AddWithValue("@WorkID", seeker.WorkID);
-                    object ThirdName = (String.IsNullOrEmpty(seeker.ThirdName) == false) ? (object)seeker.ThirdName.ToString() : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
-                    object Misc = (String.IsNullOrEmpty(seeker.Misc) == false) ? (object)seeker.Misc.ToString() : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@Misc", Misc);
-                    object AssumedSalary = seeker.AssumedSalary.HasValue ? (object)seeker.AssumedSalary.Value : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@AssumedSalary", AssumedSalary);
-                    object qualification = (String.IsNullOrEmpty(seeker.Qualification) == false) ? (object)seeker.Qualification.ToString() : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@Qualification", qualification);
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = "INSERT INTO JobSeeker(FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID)VALUES(@FirstName, @SecondName, @ThirdName, @Qualification, @AssumedSalary, @Misc, @WorkID)";
+                        cmd.Parameters.AddWithValue("@FirstName", seeker.FirstName);
+                        cmd.Parameters.AddWithValue("@SecondName", seeker.SecondName);
+                        cmd.Parameters.AddWithValue("@WorkID", seeker.WorkID);
+                        object ThirdName = (String.IsNullOrEmpty(seeker.ThirdName) == false) ? (object)seeker.ThirdName.ToString() : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
+                        object Misc = (String.IsNullOrEmpty(seeker.Misc) == false) ? (object)seeker.Misc.ToString() : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@Misc", Misc);
+                        object AssumedSalary = seeker.AssumedSalary.HasValue ? (object)seeker.AssumedSalary.Value : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@AssumedSalary", AssumedSalary);
+                        object qualification = (String.IsNullOrEmpty(seeker.Qualification) == false) ? (object)seeker.Qualification.ToString() : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@Qualification", qualification);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
             }
         }
         /// <summary>
@@ -66,15 +84,23 @@ namespace RA.DataAccess
         /// <param name="SeekerID">Номер соискателя</param>
         public void Delete(int SeekerID)
         {
-            using (var connection = GetConnection())
+            try
             {
-                connection.Open();
-                using (var cmd = connection.CreateCommand())
+                using (var connection = GetConnection())
                 {
-                    cmd.CommandText = "DELETE FROM JobSeeker WHERE SeekerID=@SeekerID";
-                    cmd.Parameters.AddWithValue("@SeekerID", SeekerID);
-                    cmd.ExecuteNonQuery();
+                    connection.Open();
+                    using (var cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = "DELETE FROM JobSeeker WHERE SeekerID=@SeekerID";
+                        cmd.Parameters.AddWithValue("@SeekerID", SeekerID);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
             }
         }
         /// <summary>
@@ -84,9 +110,17 @@ namespace RA.DataAccess
         /// <returns></returns>
         public JobSeeker Get(int SeekerID)
         {
-            if (Seekers == null)
-                Load();
-            return Seekers.ContainsKey(SeekerID) ? Seekers[SeekerID] : null;
+            try
+            {
+                if (Seekers == null)
+                    Load();
+                return Seekers.ContainsKey(SeekerID) ? Seekers[SeekerID] : null;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
         /// <summary>
         /// Получить всех соискателей
@@ -94,23 +128,31 @@ namespace RA.DataAccess
         /// <returns></returns>
         public IList<JobSeeker> GetAll()
         {
-            IList<JobSeeker> seekers = new List<JobSeeker>();
-            using (var connection = GetConnection())
+            try
             {
-                connection.Open();
-                using (var cmd = connection.CreateCommand())
+                IList<JobSeeker> seekers = new List<JobSeeker>();
+                using (var connection = GetConnection())
                 {
-                    cmd.CommandText = "SELECT SeekerID, FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker";
-                    using (var datareader = cmd.ExecuteReader())
+                    connection.Open();
+                    using (var cmd = connection.CreateCommand())
                     {
-                        while (datareader.Read())
+                        cmd.CommandText = "SELECT SeekerID, FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, WorkID FROM JobSeeker";
+                        using (var datareader = cmd.ExecuteReader())
                         {
-                            seekers.Add(LoadSeeker(datareader));
+                            while (datareader.Read())
+                            {
+                                seekers.Add(LoadSeeker(datareader));
+                            }
                         }
                     }
                 }
+                return seekers;
             }
-            return seekers;
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
         /// <summary>
         /// Изменить соискателя
@@ -118,26 +160,34 @@ namespace RA.DataAccess
         /// <param name="seeker">Соискатель</param>
         public void Update(JobSeeker seeker)
         {
-            using (var conn = GetConnection())
+            try
             {
-                conn.Open();
-                using (var cmd = conn.CreateCommand())
+                using (var conn = GetConnection())
                 {
-                    cmd.CommandText = "UPDATE JobSeeker SET FirstName=@FirstName, SecondName=@SecondName, ThirdName=@ThirdName, Qualification=@Qualification, AssumedSalary=@AssumedSalary, Misc=@Misc, WorkID=@WorkID WHERE SeekerID=@SeekerID)";
-                    cmd.Parameters.AddWithValue("@SeekerID", seeker.SeekerID);
-                    cmd.Parameters.AddWithValue("@FirstName", seeker.FirstName);
-                    cmd.Parameters.AddWithValue("@SecondName", seeker.SecondName);
-                    cmd.Parameters.AddWithValue("@WorkID", seeker.WorkID);
-                    object ThirdName = (String.IsNullOrEmpty(seeker.ThirdName) == false) ? (object)seeker.ThirdName.ToString() : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
-                    object Misc = (String.IsNullOrEmpty(seeker.Misc) == false) ? (object)seeker.Misc.ToString() : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@ThirdName", Misc);
-                    object AssumedSalary = seeker.AssumedSalary.HasValue ? (object)seeker.AssumedSalary.Value : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@AssumedSalary", AssumedSalary);
-                    object qualification = (String.IsNullOrEmpty(seeker.Qualification) == false) ? (object)seeker.Qualification.ToString() : DBNull.Value;
-                    cmd.Parameters.AddWithValue("@Qualification", qualification);
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = "UPDATE JobSeeker SET FirstName=@FirstName, SecondName=@SecondName, ThirdName=@ThirdName, Qualification=@Qualification, AssumedSalary=@AssumedSalary, Misc=@Misc, WorkID=@WorkID WHERE SeekerID=@SeekerID)";
+                        cmd.Parameters.AddWithValue("@SeekerID", seeker.SeekerID);
+                        cmd.Parameters.AddWithValue("@FirstName", seeker.FirstName);
+                        cmd.Parameters.AddWithValue("@SecondName", seeker.SecondName);
+                        cmd.Parameters.AddWithValue("@WorkID", seeker.WorkID);
+                        object ThirdName = (String.IsNullOrEmpty(seeker.ThirdName) == false) ? (object)seeker.ThirdName.ToString() : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
+                        object Misc = (String.IsNullOrEmpty(seeker.Misc) == false) ? (object)seeker.Misc.ToString() : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@ThirdName", Misc);
+                        object AssumedSalary = seeker.AssumedSalary.HasValue ? (object)seeker.AssumedSalary.Value : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@AssumedSalary", AssumedSalary);
+                        object qualification = (String.IsNullOrEmpty(seeker.Qualification) == false) ? (object)seeker.Qualification.ToString() : DBNull.Value;
+                        cmd.Parameters.AddWithValue("@Qualification", qualification);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
             }
         }
         /// <summary>
@@ -146,7 +196,15 @@ namespace RA.DataAccess
         /// <returns></returns>
         private static string GetConnectionString()
         {
-            return ConfigurationManager.ConnectionStrings["RecrutingDB"].ConnectionString;
+            try
+            {
+                return ConfigurationManager.ConnectionStrings["RecrutingDB"].ConnectionString;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
         /// <summary>
         /// Подключиться к базе
@@ -154,7 +212,15 @@ namespace RA.DataAccess
         /// <returns></returns>
         private static SqlConnection GetConnection()
         {
-            return new SqlConnection(GetConnectionString());
+            try
+            {
+                return new SqlConnection(GetConnectionString());
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
         /// <summary>
         /// Загрузить соискателя
@@ -163,42 +229,98 @@ namespace RA.DataAccess
         /// <returns></returns>
         private static JobSeeker LoadSeeker(SqlDataReader reader)
         {
-            JobSeeker seeker = new JobSeeker();
-            seeker.SeekerID = reader.GetInt32(reader.GetOrdinal("SeekerID"));
-            int seekwork = reader.GetOrdinal("WorkID");
-            seeker.WorkID = reader[seekwork] == DBNull.Value ? -1 : reader.GetInt32(seekwork);
-            seeker.FirstName = reader.GetString(reader.GetOrdinal("FirstName"));
-            seeker.SecondName = reader.GetString(reader.GetOrdinal("SecondName"));
-            object thirdname = reader["ThirdName"];
-            object qualification = reader["Qualification"];
-            object assumedsalary = reader["AssumedSalary"];
-            object misc = reader["Misc"];
-            if (thirdname != DBNull.Value)
-                seeker.ThirdName = reader.GetString(reader.GetOrdinal("ThirdName"));
-            if (qualification != DBNull.Value)
-                seeker.Qualification = reader.GetString(reader.GetOrdinal("Qualification"));
-            if (assumedsalary != DBNull.Value)
-                seeker.AssumedSalary = Convert.ToDecimal(reader["AssumedSalary"]);
-            if (misc != DBNull.Value)
-                seeker.Misc = reader.GetString(reader.GetOrdinal("Misc"));
-            return seeker;
+            try
+            {
+                JobSeeker seeker = new JobSeeker();
+                seeker.SeekerID = reader.GetInt32(reader.GetOrdinal("SeekerID"));
+                int seekwork = reader.GetOrdinal("WorkID");
+                seeker.WorkID = reader[seekwork] == DBNull.Value ? -1 : reader.GetInt32(seekwork);
+                seeker.FirstName = reader.GetString(reader.GetOrdinal("FirstName"));
+                seeker.SecondName = reader.GetString(reader.GetOrdinal("SecondName"));
+                object thirdname = reader["ThirdName"];
+                object qualification = reader["Qualification"];
+                object assumedsalary = reader["AssumedSalary"];
+                object misc = reader["Misc"];
+                if (thirdname != DBNull.Value)
+                    seeker.ThirdName = reader.GetString(reader.GetOrdinal("ThirdName"));
+                if (qualification != DBNull.Value)
+                    seeker.Qualification = reader.GetString(reader.GetOrdinal("Qualification"));
+                if (assumedsalary != DBNull.Value)
+                    seeker.AssumedSalary = Convert.ToDecimal(reader["AssumedSalary"]);
+                if (misc != DBNull.Value)
+                    seeker.Misc = reader.GetString(reader.GetOrdinal("Misc"));
+                return seeker;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
 
         public IList<JobSeeker> Load()
         {
-            Seekers = new Dictionary<int, JobSeeker>();
-            var seekers = LoadInternal();
-            foreach(var seeker in seekers)
+            try
             {
-                Seekers.Add(seeker.SeekerID, seeker);
+                Seekers = new Dictionary<int, JobSeeker>();
+                var seekers = LoadInternal();
+                foreach (var seeker in seekers)
+                {
+                    Seekers.Add(seeker.SeekerID, seeker);
+                }
+                return Seekers.Values.ToList();
             }
-            return Seekers.Values.ToList();
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
         public void Reset()
         {
-            if (Seekers == null)
-                return;
-            Seekers.Clear();
+            try
+            {
+                if (Seekers == null)
+                    return;
+                Seekers.Clear();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
+        }
+        public IList<JobSeeker> SearchSeekers(string FirstName, string SecondName, string TypeOfWork)
+        {
+            try
+            {
+                IList<JobSeeker> seekers = new List<JobSeeker>();
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT SeekerID, FirstName, SecondName, ThirdName, Qualification, AssumedSalary, Misc, JobSeeker.WorkID FROM JobSeeker JOIN TypeOfWork on JobSeeker.WorkID = TypeOfWork.WorkID WHERE FirstName like @FirstName AND SecondName like @SecondName AND TypeOfWork.Name like @Name";
+                        cmd.Parameters.AddWithValue("@FirstName", "%" + FirstName + "%");
+                        cmd.Parameters.AddWithValue("@SecondName", "%" + SecondName + "%");
+                        cmd.Parameters.AddWithValue("@Name", "%" + TypeOfWork);
+                        using (var dataReader = cmd.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                seekers.Add(LoadSeeker(dataReader));
+                            }
+                        }
+                    }
+                }
+
+                return seekers;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString(), "ERROR");
+                throw;
+            }
         }
     }
 }
