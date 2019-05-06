@@ -45,32 +45,37 @@ namespace RecrutingAssistantApp
             switch(status)
             {
                 case "JobSeeker":
+                    
                     this.sDeals.Visibility = Visibility.Collapsed;
                     this.sEmployers.Visibility = Visibility.Collapsed;;
                     this.sTypeOfWork.Visibility = Visibility.Collapsed;
                     this.sPositions.Visibility = Visibility.Collapsed;
                     break;
                 case "TypeOfWork":
+                    
                     this.sDeals.Visibility = Visibility.Collapsed;
-                    this.sEmployers.Visibility = Visibility.Collapsed; ;
+                    this.sEmployers.Visibility = Visibility.Collapsed;
                     this.sJobSeeker.Visibility = Visibility.Collapsed;
                     this.sPositions.Visibility = Visibility.Collapsed;
                     break;
                 case "Employer":
+                    
                     this.sDeals.Visibility = Visibility.Collapsed;
-                    this.sJobSeeker.Visibility = Visibility.Collapsed; ;
+                    this.sJobSeeker.Visibility = Visibility.Collapsed; 
                     this.sTypeOfWork.Visibility = Visibility.Collapsed;
                     this.sPositions.Visibility = Visibility.Collapsed;
                     break;
                 case "Position":
+                    
                     this.sDeals.Visibility = Visibility.Collapsed;
-                    this.sEmployers.Visibility = Visibility.Collapsed; ;
+                    this.sEmployers.Visibility = Visibility.Collapsed; 
                     this.sTypeOfWork.Visibility = Visibility.Collapsed;
                     this.sJobSeeker.Visibility = Visibility.Collapsed;
                     break;
                 case "Deal":
+                    
                     this.sJobSeeker.Visibility = Visibility.Collapsed;
-                    this.sEmployers.Visibility = Visibility.Collapsed; ;
+                    this.sEmployers.Visibility = Visibility.Collapsed; 
                     this.sTypeOfWork.Visibility = Visibility.Collapsed;
                     this.sPositions.Visibility = Visibility.Collapsed;
                     break;

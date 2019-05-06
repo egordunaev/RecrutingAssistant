@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using RA.BusinessLayer;
 using RA.Dto;
 using RecrutingAssistantApp;
@@ -481,6 +483,42 @@ namespace RecrutingAssistant
                     default: MessageBox.Show("Для поиска необходимо выбрать таблицу!");
                         break;
                 }
+            }
+        }
+
+        private void ExcelExporterButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<object> grid = null;
+            switch(status)
+            {
+                case "JobSeeker":
+                    grid = this.dgJobSeeker.ItemsSource.Cast<object>().ToList();
+                    break;
+                case "TypeOfWork":
+                    grid = this.dgTypeOfWork.ItemsSource.Cast<object>().ToList();
+                    break;
+                case "Employer":
+                    grid = this.dgEmployer.ItemsSource.Cast<object>().ToList();
+                    break;
+                case "Position":
+                    grid = this.dgPosition.ItemsSource.Cast<object>().ToList();
+                    break;
+                case "Deal":
+                    grid = this.dgDeal.ItemsSource.Cast<object>().ToList();
+                    break;
+            }
+            SaveFileDialog saveXlsxDialog = new SaveFileDialog
+            {
+                DefaultExt = ".xlsx",
+                Filter = "Excel Files (.xlsx)|*.xlsx",
+                AddExtension = true,
+                FileName = status
+            };
+            bool? result = saveXlsxDialog.ShowDialog();
+            if(result==true)
+            {
+                FileInfo xlsxFile = new FileInfo(saveXlsxDialog.FileName);
+                ProcessFactory.GetReport().fillExcelByType(grid, status, xlsxFile);
             }
         }
     }

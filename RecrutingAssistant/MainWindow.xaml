@@ -131,7 +131,7 @@
                 <MenuItem Name="dataBaseS" Header="Настроить соединение с базой данных" Click="btnDatabase_Click" ></MenuItem>
             </MenuItem>
             <MenuItem Name="Reports" Header="Отчеты">
-                <MenuItem Name="ExcelExporterButton" Header="Экспорт таблицы Excel"/>
+                <MenuItem Name="ExcelExporterButton" Header="Экспорт таблицы Excel" Click="ExcelExporterButton_Click"/>
             </MenuItem>
             <MenuItem Name="About" Header="О программе"></MenuItem>
         </Menu>

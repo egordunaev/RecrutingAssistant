@@ -32,5 +32,9 @@ namespace RA.BusinessLayer
         {
             return new SettingsProcess();
         }
+        public static IReportGenerator GetReport()
+        {
+            return new ReportGenerator();
+        }
     }
 }

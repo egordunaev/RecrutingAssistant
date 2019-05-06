@@ -31,3 +31,5 @@ D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.Busin
 D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.csproj.CopyComplete
 D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.dll
 D:\Programs\_dev\Projects\RecrutingAssistant\RA.BusinessLayer\obj\Debug\RA.BusinessLayer.pdb
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.BusinessLayer\bin\Debug\EPPlus.dll
+D:\_DEV\Visual Studio\Projects\_kurs\RecrutingAssistant\RA.BusinessLayer\bin\Debug\EPPlus.xml
