@@ -521,5 +521,16 @@ namespace RecrutingAssistant
                 ProcessFactory.GetReport().fillExcelByType(grid, status, xlsxFile);
             }
         }
+
+        private void GraphReportButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ReportWindow();
+            window.Show();
+        }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            // sneak 'about' window here
+        }
     }
 }

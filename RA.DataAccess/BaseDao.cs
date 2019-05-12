@@ -22,7 +22,7 @@ namespace RA.DataAccess
         /// Подключиться к базе
         /// </summary>
         /// <returns></returns>
-        private static SqlConnection GetConnection()
+        protected static SqlConnection GetConnection()
         {
             return new SqlConnection(GetConnectionString());
         }

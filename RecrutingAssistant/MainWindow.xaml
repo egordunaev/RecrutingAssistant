@@ -132,8 +132,9 @@
             </MenuItem>
             <MenuItem Name="Reports" Header="Отчеты">
                 <MenuItem Name="ExcelExporterButton" Header="Экспорт таблицы Excel" Click="ExcelExporterButton_Click"/>
+                <MenuItem Name="GraphReportButton" Header="Отчет по сделкам" Click="GraphReportButton_Click"/>
             </MenuItem>
-            <MenuItem Name="About" Header="О программе"></MenuItem>
+            <MenuItem Name="About" Header="О программе" Click="btnAbout_Click"></MenuItem>
         </Menu>
         <StatusBar Name="statusBar" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="8">
             <Label Name="statusLabel" Content="Работа с таблицей:" Visibility="Visible" VerticalAlignment="Top"></Label>

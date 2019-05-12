@@ -46,6 +46,7 @@
     <Compile Include="EmployerDto.cs" />
     <Compile Include="JobSeekerDto.cs" />
     <Compile Include="PositionDto.cs" />
+    <Compile Include="ReportItemDto.cs" />
     <Compile Include="TypeOfWorkDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
