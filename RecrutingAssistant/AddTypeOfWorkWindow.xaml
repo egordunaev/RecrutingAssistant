@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="Типы работ" Height="92.666" Width="324" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Типы работ" Height="99.333" Width="324" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="155"/>
@@ -16,9 +16,9 @@
             <RowDefinition Height="Auto" MinHeight="4"/>
             <RowDefinition Height="Auto" MinHeight="29"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Название работы" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="16" />
-        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Width="150" VerticalAlignment="Center" Height="18" Margin="0,2,0,3"/>
-        <Button Name="btnSave" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Content="Сохранить" Margin="3" Click="btnSave_Click"/>
-        <Button Name="btnCancel" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Content="Отмена" Margin="3" Click="btnCancel_Click"/>
+        <TextBlock Text="Название работы" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="16" Margin="10,4,0,4" />
+        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Width="135" VerticalAlignment="Center" Height="18" />
+        <Button Name="btnSave" HorizontalAlignment="Center" Width="135" Grid.Row="2" Grid.Column="0" Content="Сохранить" Margin="3" Click="btnSave_Click"/>
+        <Button Name="btnCancel" HorizontalAlignment="Center" Width="135" Grid.Row="2" Grid.Column="1" Content="Отмена" Margin="3" Click="btnCancel_Click"/>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecrutingAssistantApp"
         mc:Ignorable="d"
-        Title="RecrutingApp" Height="461.904" Width="1300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="RecrutingApp" Height="461.904" Width="868" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -22,8 +22,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="88"/>
-            <ColumnDefinition Width="123*"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="685*"/>
+            <ColumnDefinition Width="89*"/>
         </Grid.ColumnDefinitions>
         <DataGrid Name="dgTypeOfWork" VerticalAlignment="Stretch" Grid.RowSpan="7" Grid.Column="1" Grid.Row="1" Visibility="Hidden" AutoGenerateColumns="False" GridLinesVisibility="None">
             <DataGrid.Columns>
@@ -71,11 +71,11 @@
                 <DataGridTextColumn Header="Комиссионные" Binding="{Binding Path=Commission}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Name="btnAdd" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="1"  Click="btnAdd_Click" Width="65"  />
-        <Button Name="btnRefresh" Content="Обновить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="2"  Click="btnRefresh_Click"  Width="65"/>
-        <Button Name="btnDelete" Content="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="3"  Click="btnDelete_Click"  Width="65" />
-        <Button Name="btnEdit" Content="Изменить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="4"  Click="btnEdit_Click" Width="65" />
-        <Button Name="btnSearch" Content="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="5" Width="65" Click="btnSearch_Click" />
+        <Button Name="btnAdd" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="1"  Click="btnAdd_Click" Width="64"  />
+        <Button Name="btnRefresh" Content="Обновить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="2"  Click="btnRefresh_Click"  Width="64"/>
+        <Button Name="btnDelete" Content="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="3"  Click="btnDelete_Click"  Width="64"  />
+        <Button Name="btnEdit" Content="Изменить" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="4"  Click="btnEdit_Click" Width="64"  />
+        <Button Name="btnSearch" Content="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Grid.Column="2" Grid.Row="5" Width="64" Click="btnSearch_Click"  />
         <StackPanel Grid.Column="0" Orientation="Vertical" Grid.ColumnSpan="1" VerticalAlignment="Center" Height="45" Grid.Row="1" Margin="0,5">
             <Button HorizontalAlignment="Center" x:Name="btnTypeOfWork" VerticalAlignment="Center" Height="45" Width="70" Click="btnTypeOfWork_Click">
                 <Button.ToolTip>
