@@ -1,0 +1,24 @@
+﻿<Window x:Class="RecrutingAssistantApp.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecrutingAssistantApp"
+        mc:Ignorable="d"
+        Title="О программе" Height="150" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text=" ИГХТУ, 2019" Width="290" Height="50" HorizontalAlignment="Stretch" Grid.Row="0"/>
+        <TextBlock Text="Разработал студент группы 3/42: Дунаев Егор" Width="450" Height="20" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="2"/>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center" Height="20">           
+            <Hyperlink NavigateUri="https://github.com/egordunaev" RequestNavigate="Hyperlink_RequestNavigate">Github.com
+            </Hyperlink>
+        </TextBlock>
+    </Grid>
+</Window>

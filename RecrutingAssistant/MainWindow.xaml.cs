@@ -530,7 +530,8 @@ namespace RecrutingAssistant
 
         private void btnAbout_Click(object sender, RoutedEventArgs e)
         {
-            // sneak 'about' window here
+            var window = new AboutWindow();
+            window.ShowDialog();
         }
     }
 }
