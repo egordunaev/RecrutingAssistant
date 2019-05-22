@@ -59,7 +59,7 @@ namespace RecrutingAssistantApp
         public AddDealWindow()
         {
             InitializeComponent();
-            cbPosition.ItemsSource = (from P in Positions orderby P.PositionName select P);
+            cbPosition.ItemsSource = (from P in Positions orderby P.FullPosition select P);
             cbPosition.SelectedIndex = 0;
             cbSeeker.ItemsSource = (from S in Seekers orderby S.FullName select S);
             cbSeeker.SelectedIndex = 0;

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Поиск" Height="169" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl>
+        <TabControl x:Name="TabControl">
             <TabItem x:Name="sJobSeeker" Header="Поиск соискателей">
                 <Grid>
                     <Grid.RowDefinitions>

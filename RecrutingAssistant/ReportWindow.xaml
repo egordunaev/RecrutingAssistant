@@ -9,15 +9,15 @@
         Title="Отчет по сделкам" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
 
-        <RadioButton Content="Гистограмма" Name="radioGist" Margin="640,16,12,376" IsChecked="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        <RadioButton Content="Линейный" Name="radioSpline" Margin="640,50,12,341" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <RadioButton GroupName="GraphType" Content="Гистограмма" Name="radioGist" Margin="640,16,12,376" IsChecked="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <RadioButton GroupName="GraphType" Content="Линейный" Name="radioSpline" Margin="640,50,12,341" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="640,100,0,0" Name="datePicker1" VerticalAlignment="Top" Width="115" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="640,130,0,0" Name="datePicker2" VerticalAlignment="Top" Width="115" RenderTransformOrigin="0.4,0" />
-        <RadioButton Content="День" Name="radioDay" Margin="640,164,12,232" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        <RadioButton Content="Месяц" Name="radioMonth" Margin="640,193,12,203" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        <RadioButton Content="Год" Name="radioYear" Margin="640,223,12,167" IsChecked="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        <Button Content="Принять" Height="23" Name="btnAccept" Width="75" FlowDirection="LeftToRight" Click="btnAccept_Click" Margin="707,372,12,26" />
+        <RadioButton GroupName="DateType" Content="День" Name="radioDay" Margin="640,164,12,232" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <RadioButton GroupName="DateType" Content="Месяц" Name="radioMonth" Margin="640,193,12,203" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <RadioButton GroupName="DateType" Content="Год" Name="radioYear" Margin="640,223,12,167" IsChecked="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <Button Content="Принять" Height="23" Name="btnAccept" Width="75" FlowDirection="LeftToRight" Click="btnAccept_Click" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,24,26"/>
         <WindowsFormsHost Grid.Row="0" Grid.Column="0" Margin="10,10,170,26">
             <wf:Chart x:Name="chart" />
         </WindowsFormsHost>

@@ -31,6 +31,12 @@ namespace RA.Dto
         /// Зарплата вакансии
         /// </summary>
         public decimal? Salary { get; set; }
-
+        public string FullPosition
+        {
+            get
+            {
+                return $"{ PositionName } - { employer.Name }";
+            }
+        }
     }
 }

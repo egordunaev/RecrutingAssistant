@@ -122,7 +122,7 @@ namespace RA.DataAccess
                 using (var cmd = conn.CreateCommand())
                 {
                     //Задаём текст команды
-                    cmd.CommandText = "select CONVERT(date, DateOfDeal, 105) as mydate, isnull(SUM(Commission), 0.0) as mysum, ISNULL(count(Commission), 0.0) as mycount from Deal where DateOfDeal between DATEPART(YEAR,@start) and DATEPART(YEAR,@stop) group by CONVERT(date, DateOfDeal, 105)";
+                    cmd.CommandText = "select CONVERT(date, DateOfDeal, 105) as mydate, isnull(SUM(Commission), 0.0) as mysum, ISNULL(count(Commission), 0.0) as mycount from Deal where DateOfDeal between @start and @stop group by CONVERT(date, DateOfDeal, 105)";
                     //Добавляем значение параметра
                     cmd.Parameters.AddWithValue("@start", start);
                     cmd.Parameters.AddWithValue("@stop", end);

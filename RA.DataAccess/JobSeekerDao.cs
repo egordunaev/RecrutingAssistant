@@ -167,7 +167,7 @@ namespace RA.DataAccess
                     conn.Open();
                     using (var cmd = conn.CreateCommand())
                     {
-                        cmd.CommandText = "UPDATE JobSeeker SET FirstName=@FirstName, SecondName=@SecondName, ThirdName=@ThirdName, Qualification=@Qualification, AssumedSalary=@AssumedSalary, Misc=@Misc, WorkID=@WorkID WHERE SeekerID=@SeekerID)";
+                        cmd.CommandText = "UPDATE JobSeeker SET FirstName=@FirstName, SecondName=@SecondName, ThirdName=@ThirdName, Qualification=@Qualification, AssumedSalary=@AssumedSalary, Misc=@Misc, WorkID=@WorkID WHERE SeekerID=@SeekerID";
                         cmd.Parameters.AddWithValue("@SeekerID", seeker.SeekerID);
                         cmd.Parameters.AddWithValue("@FirstName", seeker.FirstName);
                         cmd.Parameters.AddWithValue("@SecondName", seeker.SecondName);
@@ -175,7 +175,7 @@ namespace RA.DataAccess
                         object ThirdName = (String.IsNullOrEmpty(seeker.ThirdName) == false) ? (object)seeker.ThirdName.ToString() : DBNull.Value;
                         cmd.Parameters.AddWithValue("@ThirdName", ThirdName);
                         object Misc = (String.IsNullOrEmpty(seeker.Misc) == false) ? (object)seeker.Misc.ToString() : DBNull.Value;
-                        cmd.Parameters.AddWithValue("@ThirdName", Misc);
+                        cmd.Parameters.AddWithValue("@Misc", Misc);
                         object AssumedSalary = seeker.AssumedSalary.HasValue ? (object)seeker.AssumedSalary.Value : DBNull.Value;
                         cmd.Parameters.AddWithValue("@AssumedSalary", AssumedSalary);
                         object qualification = (String.IsNullOrEmpty(seeker.Qualification) == false) ? (object)seeker.Qualification.ToString() : DBNull.Value;
